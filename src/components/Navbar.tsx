@@ -7,17 +7,25 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import IconGear from '../assets/svgs/IconGear';
+import { useTranslation } from 'react-i18next';
 
-const pages = ['About', 'Locations', 'Services', 'Practitioners', 'Contact'];
+const pages = [
+  'navbar.about',
+  'navbar.locations',
+  'navbar.services',
+  'navbar.practitioners',
+  'navbar.contact',
+];
 const settings = ['Dashboard', 'Logout'];
 
 function Navbar() {
+  const { t } = useTranslation();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -118,9 +126,14 @@ function Navbar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: 'white',
+                  display: 'block',
+                  textTransform: 'capitalize',
+                }}
               >
-                {page}
+                {t(page)}
               </Button>
             ))}
           </Box>
