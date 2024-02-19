@@ -1,4 +1,11 @@
 {
   "welcome": "Καλως Ηρθατε !",
-  "greeting": "Γεια, {{name}} !"
+  "greeting": "Γεια, {{name}} !",
+  "navbar": {
+    "about": "σχετικά",
+    "practitioners": "ασκούμενοι",
+    "services": "υπηρεσίες",
+    "locations": "τοποθεσίες",
+    "contact": "επικοινωνία"
+  }
 }

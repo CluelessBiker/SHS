@@ -1,4 +1,11 @@
 {
   "welcome": "Welcome!",
-  "greeting": "Hello, {{name}}!"
+  "greeting": "Hello, {{name}}!",
+  "navbar": {
+    "about": "about",
+    "practitioners": "practitioners",
+    "services": "services",
+    "locations": "locations",
+    "contact": "contact"
+  }
 }

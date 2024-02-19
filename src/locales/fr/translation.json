@@ -1,4 +1,11 @@
 {
   "welcome": "Bienvenue !",
-  "greeting": "Salut, {{name}} !"
+  "greeting": "Salut, {{name}} !",
+  "navbar": {
+    "about": "à propos",
+    "practitioners": "praticien(ne)s",
+    "services": "service",
+    "locations": "emplacements",
+    "contact": "contact"
+  }
 }
