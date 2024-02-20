@@ -5,8 +5,12 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import moment from 'moment';
 import 'moment/locale/el';
 
+const backend = new Backend({
+  loadPath: '/locales/{{lng}}/{{ns}}.json',
+});
+
 i18n
-  .use(Backend)
+  .use(backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -16,13 +20,9 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
-    },
   })
   .then(() => {
     moment.locale(i18n.language);
-    // initReactI18next(i18n);
   });
 
 i18n.on('languageChanged', lng => {
