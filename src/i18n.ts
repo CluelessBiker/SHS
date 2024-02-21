@@ -5,12 +5,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import moment from 'moment';
 import 'moment/locale/el';
 
-const backend = new Backend({
-  loadPath: '/locales/{{lng}}/{{ns}}.json',
-});
-
 i18n
-  .use(backend)
+  .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
