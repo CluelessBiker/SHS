@@ -1,9 +1,18 @@
+/* GLOBAL STYLES */
+:root {
+  --mui-palette-primary-pink: #660e3e;
+  --mui-palette-primary-darkGrey: #191919;
+  --mui-palette-primary-medium: #2e2d27;
+  --mui-palette-primary-green: #706c53;
+  --mui-palette-primary-white: #f1f1f1;
+}
+
 .bodyContainer {
   flex: 1;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #f1f1f1;
   justify-content: space-between;
+  background-color: var(--mui-palette-primary-white);
 }
