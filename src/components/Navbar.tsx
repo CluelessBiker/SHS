@@ -13,18 +13,20 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import IconGear from '../assets/svgs/IconGear';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 const pages = [
-  'navbar.about',
-  'navbar.locations',
-  'navbar.services',
-  'navbar.practitioners',
-  'navbar.contact',
+  { text: 'navbar.about', link: 'about' },
+  { text: 'navbar.locations', link: 'locations' },
+  { text: 'navbar.services', link: 'services' },
+  { text: 'navbar.practitioners', link: 'practitioners' },
+  { text: 'navbar.contact', link: 'contact' },
 ];
 const settings = ['Dashboard', 'Logout'];
 
 function Navbar() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -36,7 +38,8 @@ function Navbar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page: string) => {
+    navigate(`/${page}`);
     setAnchorElNav(null);
   };
 
@@ -96,8 +99,8 @@ function Navbar() {
               }}
             >
               {pages.map(page => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.text} onClick={() => handleCloseNavMenu(page.link)}>
+                  <Typography textAlign="center">{page.text}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -124,8 +127,8 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(page => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.text}
+                onClick={() => handleCloseNavMenu(page.link)}
                 sx={{
                   my: 2,
                   color: 'white',
@@ -133,7 +136,7 @@ function Navbar() {
                   textTransform: 'capitalize',
                 }}
               >
-                {t(page)}
+                {t(page.text)}
               </Button>
             ))}
           </Box>
