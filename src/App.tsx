@@ -22,6 +22,7 @@ function App() {
           {/* FIXME: replace with 404 page later */}
           <Route element={<h1>Page not found</h1>} />
         </Routes>
+        <p>eventual footer</p>
       </Router>
     </div>
   );
