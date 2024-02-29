@@ -25,11 +25,7 @@ const LoginPage = () => {
   const handleLogin = async (event: any) => {
     event.preventDefault();
     try {
-      await axios.post(
-        'https://shs-drf-414bc8b321a8.herokuapp.com/dj-rest-auth/login/',
-        login,
-      );
-      //   await axios.post('/dj-rest-auth/login/', login);
+      await axios.post('/dj-rest-auth/login/', login);
       navigate('/');
     } catch (error) {
       console.log(error);
