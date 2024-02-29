@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import LocationsPage from './pages/LocationsPage';
 import LoginPage from './pages/LoginPage';
+import './api/axiosDefaults';
 
 function App() {
   return (
