@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
   const navigate = useNavigate();
 
+  const [errors, setErrors] = useState<any>(undefined);
   const [login, setLogin] = useState<{ username: string; password: string }>({
     username: '',
     password: '',
@@ -27,9 +28,15 @@ const LoginPage = () => {
     try {
       await axios.post('/dj-rest-auth/login/', login);
       navigate('/');
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      setErrors(error.response?.data);
     }
+  };
+
+  const handleError = (data: any) => {
+    if (!errors) return '';
+    const found = errors[data].map((it: string) => it);
+    return found ? found : '';
   };
 
   return (
