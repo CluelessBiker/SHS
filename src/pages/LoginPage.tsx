@@ -1,10 +1,12 @@
 import { Box, TextField } from '@mui/material';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SetCurrentUserContext } from '../App';
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const setCurrentUser = useContext(SetCurrentUserContext);
 
   const [errors, setErrors] = useState<any>(undefined);
   const [login, setLogin] = useState<{ username: string; password: string }>({
@@ -26,7 +28,8 @@ const LoginPage = () => {
   const handleLogin = async (event: any) => {
     event.preventDefault();
     try {
-      await axios.post('/dj-rest-auth/login/', login);
+      const { data } = axios.post('/dj-rest-auth/login/', login);
+      setCurrentUser(data.user);
       navigate('/');
     } catch (error: any) {
       setErrors(error.response?.data);
@@ -39,6 +42,8 @@ const LoginPage = () => {
     return found ? found : '';
   };
 
+  console.log(handleError('non_field_errors'));
+
   return (
     <Box>
       <TextField
@@ -47,7 +52,9 @@ const LoginPage = () => {
         variant={'outlined'}
         id={'outlined-basic'}
         value={login.username}
+        error={handleError('username')}
         aria-label={'enter login username'}
+        helperText={handleError('username')}
         onChange={value => onChange('username', value)}
       />
       <TextField
@@ -56,10 +63,15 @@ const LoginPage = () => {
         variant={'outlined'}
         id={'outlined-basic'}
         value={login.password}
+        error={handleError('password')}
         aria-label={'enter login password'}
+        helperText={handleError('password')}
         onChange={value => onChange('password', value)}
       />
       <button onClick={handleLogin}>login</button>
+
+      {handleError('non_field_errors') !== '' ||
+        (!handleError('non_field_errors') && <p>{handleError('non_field_errors')}</p>)}
     </Box>
   );
 };
