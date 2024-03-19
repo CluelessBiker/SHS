@@ -1,0 +1,15 @@
+.modal {
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    boxShadow: 24;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width:600px) {
+
+    .modal {
+        width: 325px;
+    }
+}
