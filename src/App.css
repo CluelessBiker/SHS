@@ -1,5 +1,7 @@
 /* GLOBAL STYLES */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -23,9 +25,16 @@
 }
 
 .boxes {
-  padding: 8px;
+  gap: 8px;
+  padding: 16px;
   display: flex;
   border-radius: 16px;
   flex-direction: column;
-  border: 1px solid var(--mui-palette-primary-darkGrey)
+  background-color: var(--mui-palette-primary-white);
+  border: 1px solid var(--mui-palette-primary-darkGrey);
+}
+
+.boxInner {
+  gap: 8px;
+  display: flex;
 }
