@@ -7,6 +7,10 @@
     "services": "services",
     "locations": "locations",
     "contact": "contact",
-    "logOut": "logout"
+    "logOut": "logout",
+    "addLoc": "+ Location"
+  },
+  "buttons": {
+    "addLoc": "add location"
   }
 }
