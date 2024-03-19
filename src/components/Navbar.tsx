@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,7 +14,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import IconGear from '../assets/svgs/IconGear';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { CurrentUserContext } from '../App';
+import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext.tsx';
+import axios from 'axios';
 
 const pages = [
   { text: 'navbar.about', link: 'about' },
@@ -23,14 +24,14 @@ const pages = [
   { text: 'navbar.practitioners', link: 'practitioners' },
   { text: 'navbar.contact', link: 'contact' },
 ];
-const settings = ['Dashboard', 'Logout'];
+const settings = [{ text: 'navbar.logOut', link: 'logout' }];
 
 function Navbar() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const currentUser = useContext(CurrentUserContext);
-  console.log(currentUser);
+  const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -49,6 +50,15 @@ function Navbar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('dj-rest-auth/logout/');
+      setCurrentUser(null);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -145,13 +155,14 @@ function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <IconGear color={'#F1F1F1'} />
-              </IconButton>
-            </Tooltip>
-            {currentUser !== null && (
+          {currentUser && (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <IconGear color={'#F1F1F1'} />
+                </IconButton>
+              </Tooltip>
+
               <Menu
                 sx={{ mt: '45px' }}
                 id="menu-appbar"
@@ -168,14 +179,19 @@ function Navbar() {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map(setting => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                {settings.map((it, ind) => (
+                  <MenuItem
+                    key={it.link + ind}
+                    onClick={() =>
+                      it.link === 'logout' ? handleLogout() : handleCloseNavMenu(it.link)
+                    }
+                  >
+                    <Typography textAlign="center">{t(it.text)}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
-            )}
-          </Box>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
