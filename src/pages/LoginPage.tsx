@@ -1,14 +1,14 @@
-import { Box, TextField } from '@mui/material';
-import axios from 'axios';
 import { useState, useContext } from 'react';
+import axios from 'axios';
+import { Box, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { SetCurrentUserContext } from '../App';
+import { SetCurrentUserContext } from '../context/CurrentUserContext.tsx';
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const setCurrentUser = useContext(SetCurrentUserContext);
 
-  const [errors, setErrors] = useState<any>(undefined);
+  const [errors, setErrors] = useState<any>({});
   const [login, setLogin] = useState<{ username: string; password: string }>({
     username: '',
     password: '',
@@ -41,8 +41,6 @@ const LoginPage = () => {
     const found = errors[data].map((it: string) => it);
     return found ? found : '';
   };
-
-  console.log(handleError('non_field_errors'));
 
   return (
     <Box>
