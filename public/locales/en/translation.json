@@ -6,6 +6,7 @@
     "practitioners": "practitioners",
     "services": "services",
     "locations": "locations",
-    "contact": "contact"
+    "contact": "contact",
+    "logOut": "logout"
   }
 }
