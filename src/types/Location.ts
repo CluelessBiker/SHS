@@ -9,5 +9,5 @@ export type Location = {
   gRating: string;
   gMap: string;
   image: string;
-  language: string;
+  language: number;
 };
