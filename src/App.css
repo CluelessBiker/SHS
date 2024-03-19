@@ -1,4 +1,8 @@
 /* GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --mui-palette-primary-pink: #660e3e;
   --mui-palette-primary-darkGrey: #191919;
@@ -16,4 +20,12 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--mui-palette-primary-white);
+}
+
+.boxes {
+  padding: 8px;
+  display: flex;
+  border-radius: 16px;
+  flex-direction: column;
+  border: 1px solid var(--mui-palette-primary-darkGrey)
 }
