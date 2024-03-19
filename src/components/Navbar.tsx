@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext.tsx';
 import axios from 'axios';
+import ModalLocation from './ModalLocation.tsx';
 
 const pages = [
   { text: 'navbar.about', link: 'about' },
@@ -33,8 +34,9 @@ function Navbar() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [locationOpen, setLocationOpen] = useState<boolean>(false);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -43,7 +45,7 @@ function Navbar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (page: string) => {
+  const handlePageNavigation = (page: string) => {
     navigate(`/${page}`);
     setAnchorElNav(null);
   };
@@ -107,13 +109,13 @@ function Navbar() {
                 horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={() => setAnchorElNav(null)}
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
             >
               {pages.map(page => (
-                <MenuItem key={page.text} onClick={() => handleCloseNavMenu(page.link)}>
+                <MenuItem key={page.text} onClick={() => handlePageNavigation(page.link)}>
                   <Typography textAlign="center">{page.text}</Typography>
                 </MenuItem>
               ))}
@@ -142,7 +144,7 @@ function Navbar() {
             {pages.map(page => (
               <Button
                 key={page.text}
-                onClick={() => handleCloseNavMenu(page.link)}
+                onClick={() => handlePageNavigation(page.link)}
                 sx={{
                   my: 2,
                   color: 'white',
@@ -183,17 +185,28 @@ function Navbar() {
                   <MenuItem
                     key={it.link + ind}
                     onClick={() =>
-                      it.link === 'logout' ? handleLogout() : handleCloseNavMenu(it.link)
+                      it.link === 'logout'
+                        ? handleLogout()
+                        : handlePageNavigation(it.link)
                     }
                   >
                     <Typography textAlign="center">{t(it.text)}</Typography>
                   </MenuItem>
                 ))}
+                <MenuItem
+                  onClick={() => {
+                    setLocationOpen(true);
+                    setAnchorElNav(null);
+                  }}
+                >
+                  <Typography textAlign="center">{t('navbar.addLoc')}</Typography>
+                </MenuItem>
               </Menu>
             </Box>
           )}
         </Toolbar>
       </Container>
+      <ModalLocation open={locationOpen} setOpen={setLocationOpen} />
     </AppBar>
   );
 }
