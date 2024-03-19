@@ -36,11 +36,11 @@ const LoginPage = () => {
     }
   };
 
-  const handleError = (data: any) => {
-    if (!errors) return '';
-    const found = errors[data].map((it: string) => it);
-    return found ? found : '';
-  };
+  // const handleError = (data: any) => {
+  //   if (!errors) return '';
+  //   const found = errors[data].map((it: string) => it);
+  //   return found ? found : '';
+  // };
 
   return (
     <Box>
@@ -50,9 +50,9 @@ const LoginPage = () => {
         variant={'outlined'}
         id={'outlined-basic'}
         value={login.username}
-        error={handleError('username')}
+        // error={handleError('username')}
         aria-label={'enter login username'}
-        helperText={handleError('username')}
+        // helperText={handleError('username')}
         onChange={value => onChange('username', value)}
       />
       <TextField
@@ -61,15 +61,15 @@ const LoginPage = () => {
         variant={'outlined'}
         id={'outlined-basic'}
         value={login.password}
-        error={handleError('password')}
+        // error={handleError('password')}
         aria-label={'enter login password'}
-        helperText={handleError('password')}
+        // helperText={handleError('password')}
         onChange={value => onChange('password', value)}
       />
       <button onClick={handleLogin}>login</button>
 
-      {handleError('non_field_errors') !== '' ||
-        (!handleError('non_field_errors') && <p>{handleError('non_field_errors')}</p>)}
+      {/*{handleError('non_field_errors') !== '' ||*/}
+      {/*  (!handleError('non_field_errors') && <p>{handleError('non_field_errors')}</p>)}*/}
     </Box>
   );
 };
