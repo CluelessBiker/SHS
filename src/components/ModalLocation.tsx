@@ -1,10 +1,12 @@
-import { ChangeEvent, FC, useRef, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
 import ModalBase from './ModalBase.tsx';
 import { useNavigate } from 'react-router-dom';
 import { Location } from '../types/Location.ts';
 import { useTranslation } from 'react-i18next';
 import { axiosReq } from '../api/axiosDefaults.ts';
 import FormInput from './FormInput.tsx';
+import { Language } from '../types/Language.ts';
+import FormDropdown from './FormDropdown.tsx';
 
 type Props = {
   open: boolean;
@@ -18,6 +20,7 @@ const ModalLocation: FC<Props> = ({ open, setOpen }) => {
   const imageInput = useRef(null);
 
   const [errors, setErrors] = useState<any>({});
+  const [lang, setLang] = useState<Language[]>([]);
   const [location, setLocation] = useState<Location>({
     title: '',
     phone: '',
@@ -30,11 +33,31 @@ const ModalLocation: FC<Props> = ({ open, setOpen }) => {
     gMap: '',
     image: '',
     language: 1,
+    area: '',
+    description: '',
   });
+
+  /**
+   * Return language options
+   */
+  useEffect(() => {
+    const fetchLanguages = async () => {
+      try {
+        const { data } = await axiosReq.get(`/languages/`);
+        setLang(data.results);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchLanguages();
+  }, []);
+
+  console.log(lang);
 
   const onChange = (
     fieldName: string,
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const value = event?.target.value;
     setLocation(oldValue => ({
@@ -69,6 +92,8 @@ const ModalLocation: FC<Props> = ({ open, setOpen }) => {
     formData.append('gRating', location.gRating);
     formData.append('gMap', location.gMap);
     formData.append('language', location.language);
+    formData.append('area', location.area);
+    formData.append('description', location.description);
     formData.append('image', imageInput?.current?.files[0]);
     try {
       await axiosReq.post('/locations/', formData);
@@ -98,11 +123,17 @@ const ModalLocation: FC<Props> = ({ open, setOpen }) => {
           onChange={value => onChange('title', value)}
         />
 
-        <FormInput
+        {/*<FormInput*/}
+        {/*  label={'language'}*/}
+        {/*  value={location.language as number}*/}
+        {/*  error={handleError('language')}*/}
+        {/*  onChange={value => onChange('language', value)}*/}
+        {/*/>*/}
+        <FormDropdown
+          data={lang}
           label={'language'}
-          value={location.language}
           error={handleError('language')}
-          onChange={value => onChange('language', value)}
+          onChange={event => onChange('language', event)}
         />
       </div>
 
@@ -141,6 +172,13 @@ const ModalLocation: FC<Props> = ({ open, setOpen }) => {
       </div>
 
       <div className={'boxInner'}>
+        <FormInput
+          label={'area'}
+          value={location.area}
+          error={handleError('area')}
+          onChange={value => onChange('area', value)}
+        />
+
         <FormInput
           label={'city'}
           value={location.city}
