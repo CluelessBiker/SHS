@@ -3,6 +3,8 @@
     left: 50%;
     width: 500px;
     boxShadow: 24;
+    max-height: 80vh;
+    overflow: scroll;
     position: absolute;
     transform: translate(-50%, -50%);
 }
