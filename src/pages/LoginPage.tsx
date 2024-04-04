@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import axios from 'axios';
-import { Box, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { SetCurrentUserContext } from '../context/CurrentUserContext.tsx';
+import FormInput from '../components/FormInput.tsx';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -32,45 +32,41 @@ const LoginPage = () => {
       setCurrentUser(data.user);
       navigate('/');
     } catch (error: any) {
-      setErrors(error.response?.data);
+      if (error.response?.status !== 401) {
+        setErrors(error.response?.data);
+      }
     }
   };
 
-  // const handleError = (data: any) => {
-  //   if (!errors) return '';
-  //   const found = errors[data].map((it: string) => it);
-  //   return found ? found : '';
-  // };
+  const handleError = (data: any) => {
+    if (!errors) return '';
+    const found = errors[data];
+    return found ? found[0] : undefined;
+  };
 
   return (
-    <Box>
-      <TextField
-        type="text"
-        label={'username'}
-        variant={'outlined'}
-        id={'outlined-basic'}
-        value={login.username}
-        // error={handleError('username')}
-        aria-label={'enter login username'}
-        // helperText={handleError('username')}
-        onChange={value => onChange('username', value)}
-      />
-      <TextField
-        type={'password'}
-        label="password"
-        variant={'outlined'}
-        id={'outlined-basic'}
-        value={login.password}
-        // error={handleError('password')}
-        aria-label={'enter login password'}
-        // helperText={handleError('password')}
-        onChange={value => onChange('password', value)}
-      />
+    <div className={'boxInner'}>
+      <div className={'boxInner'}>
+        <FormInput
+          label={'username'}
+          value={login.username}
+          error={handleError('postcode')}
+          onChange={value => onChange('username', value)}
+        />
+        <FormInput
+          type={'password'}
+          label={'password'}
+          value={login.password}
+          error={handleError('postcode')}
+          onChange={value => onChange('password', value)}
+        />
+      </div>
+
       <button onClick={handleLogin}>login</button>
 
       {/*{handleError('non_field_errors') !== '' ||*/}
       {/*  (!handleError('non_field_errors') && <p>{handleError('non_field_errors')}</p>)}*/}
-    </Box>
+    </div>
   );
 };
 
