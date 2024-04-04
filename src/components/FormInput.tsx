@@ -4,7 +4,7 @@ import styles from '../styles/FormInput.module.css';
 type Props = {
   type?: string;
   label: string;
-  value: string;
+  value: string | number;
   error?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 };
@@ -12,14 +12,14 @@ type Props = {
 const FormInput: FC<Props> = ({ type = 'text', label, value, error, onChange }) => {
   return (
     <div className={styles.inputBox}>
-      <label className={styles.inputLabel} htmlFor={value}>
+      <label className={styles.inputLabel} htmlFor={value as string}>
         {label}
       </label>
       <input
-        id={value}
         type={type}
         value={value}
         onChange={onChange}
+        id={value as string}
         className={styles.input}
         aria-label={`${label} input field`}
       />
