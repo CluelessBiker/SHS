@@ -1,4 +1,5 @@
 export type Location = {
+  id: string;
   title: string;
   phone: string;
   email: string;
