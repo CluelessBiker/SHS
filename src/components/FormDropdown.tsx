@@ -6,10 +6,11 @@ type Props = {
   label: string;
   error?: string;
   data: Language[];
+  selected: string;
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 };
 
-const FormDropdown: FC<Props> = ({ label, data, error, onChange }) => {
+const FormDropdown: FC<Props> = ({ label, data, error, selected, onChange }) => {
   return (
     <div className={styles.inputBox}>
       <label className={styles.inputLabel} htmlFor={label}>
@@ -17,7 +18,9 @@ const FormDropdown: FC<Props> = ({ label, data, error, onChange }) => {
       </label>
       <select name={label} id={label} onChange={onChange} className={styles.input}>
         {data.map((it: Language) => (
-          <option value={it.id}>{it.name}</option>
+          <option value={it.id} selected={it.id === selected}>
+            {it.name}
+          </option>
         ))}
       </select>
       {error && <p className={styles.inputP}>{error}</p>}
