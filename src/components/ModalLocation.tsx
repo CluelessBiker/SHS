@@ -33,7 +33,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
     gRating: '',
     gMap: '',
     image: '',
-    language: 1,
+    language: 2,
     area: '',
     description: '',
   });
@@ -134,6 +134,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
           data={lang}
           label={'language'}
           error={handleError('language')}
+          selected={location.language as string}
           onChange={event => onChange('language', event)}
         />
       </div>
