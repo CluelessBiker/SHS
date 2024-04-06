@@ -10,7 +10,19 @@
     "logOut": "logout",
     "addLoc": "+ Location"
   },
+  "generic": {
+    "location": "location"
+  },
   "buttons": {
-    "addLoc": "add location"
+    "addItem": "add {{item}}",
+    "editItem": "edit {{item}}",
+    "cancel": "cancel",
+    "del": "delete"
+  },
+  "modals": {
+    "confirmDelete": {
+      "sure": "Are you sure you wish to delete this {{item}}?",
+      "noUndo": "This action cannot be undone."
+    }
   }
 }
