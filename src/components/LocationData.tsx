@@ -1,5 +1,5 @@
+import { FC } from 'react';
 import { Location } from '../types/Location.ts';
-import { FC, useState } from 'react';
 import { useCurrentUser } from '../context/CurrentUserContext.tsx';
 import IconEdit from '../assets/svgs/IconEdit.tsx';
 import IconDelete from '../assets/svgs/IconDelete.tsx';
@@ -7,14 +7,12 @@ import btn from '../styles/Buttons.module.css';
 
 type Props = {
   data: Location;
+  handleEdit: () => void;
+  handleDelete: () => void;
 };
 
-const LocationData: FC<Props> = ({ data }) => {
-  const [openEdit, setOpenEdit] = useState<boolean>(false);
-  const [openDelete, setOpenDelete] = useState<boolean>(false);
-
+const LocationData: FC<Props> = ({ data, handleEdit, handleDelete }) => {
   const currentUser = useCurrentUser();
-  console.log(currentUser);
 
   return (
     <div className={'boxes'}>
@@ -37,16 +35,14 @@ const LocationData: FC<Props> = ({ data }) => {
       </p>
       {currentUser && (
         <div>
-          <button className={btn.iconButton} onClick={() => setOpenEdit(true)}>
+          <button className={btn.iconButton} onClick={handleEdit}>
             <IconEdit height={'14px'} />
           </button>
-          <button className={btn.iconButton} onClick={() => setOpenDelete(true)}>
+          <button className={btn.iconButton} onClick={handleDelete}>
             <IconDelete height={'14px'} />
           </button>
         </div>
       )}
-      {/*TODO: implement confirmation modal for delete*/}
-      {/*TODO: implement confirmation modal for edit*/}
     </div>
   );
 };
