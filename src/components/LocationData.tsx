@@ -18,7 +18,7 @@ const LocationData: FC<Props> = ({ data, handleEdit, handleDelete }) => {
     <div className={'boxes'}>
       <img src={data.image} className={'roundImage'} />
       <h3>{data.title}</h3>
-      <p>Phone: {data.phone}</p>
+      <p>Phone: +30 {data.phone}</p>
       <p>Email: {data.email}</p>
       <p>{data.description}</p>
       <p>
@@ -28,10 +28,26 @@ const LocationData: FC<Props> = ({ data, handleEdit, handleDelete }) => {
         {data.area}, {data.city}, {data.postcode}
       </p>
       <p>
-        See on <a href={data.gMap}>google maps</a>
+        See on{' '}
+        <a
+          href={data.gMap}
+          target={'_blank'}
+          rel={'noreferrer'}
+          aria-label={'google maps'}
+        >
+          google maps
+        </a>
       </p>
       <p>
-        See <a href={data.gRating}>reviews</a>
+        See{' '}
+        <a
+          target={'_blank'}
+          rel={'noreferrer'}
+          href={data.gRating}
+          aria-label={'google reviews'}
+        >
+          reviews
+        </a>
       </p>
       {currentUser && (
         <div>
