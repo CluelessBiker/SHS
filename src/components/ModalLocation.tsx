@@ -58,8 +58,6 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
     fetchLanguages();
   }, []);
 
-  console.log(lang);
-
   const onChange = (
     fieldName: string,
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -73,7 +71,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
 
   const handleChangeImage = (event: any) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(location.image);
+      URL.revokeObjectURL(location.image as string);
       setLocation({
         ...location,
         image: URL.createObjectURL(event.target.files[0]),
@@ -97,7 +95,10 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
     formData.append('language', location.language as string);
     formData.append('area', location.area as string);
     formData.append('description', location.description as string);
-    formData.append('image', imageInput?.current?.files[0]);
+    if (imageInput?.current?.files[0]) {
+      formData.append('image', imageInput.current.files[0]);
+    }
+
     try {
       if (data) {
         await axiosReq.put(`/locations/${data.id}/`, formData);
