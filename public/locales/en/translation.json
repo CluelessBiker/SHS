@@ -17,12 +17,26 @@
     "addItem": "add {{item}}",
     "editItem": "edit {{item}}",
     "cancel": "cancel",
-    "del": "delete"
+    "del": "delete",
+    "submit": "Submit",
+    "bookNow": "book now"
   },
   "modals": {
     "confirmDelete": {
       "sure": "Are you sure you wish to delete this {{item}}?",
       "noUndo": "This action cannot be undone."
+    }
+  },
+  "services": {
+    "offered": "Services offered"
+  },
+  "practitioners": {
+    "pract": "Our practitioners"
+  },
+  "contact": {
+    "contactUs": "Contact us",
+    "form": {
+
     }
   }
 }
