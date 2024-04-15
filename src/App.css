@@ -1,16 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+
 /* GLOBAL STYLES */
-* {
+:global {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 :root {
+  /* COLOURS */
   --mui-palette-primary-pink: #660e3e;
   --mui-palette-primary-darkGrey: #191919;
   --mui-palette-primary-medium: #2e2d27;
   --mui-palette-primary-green: #706c53;
   --mui-palette-primary-white: #f1f1f1;
+
+  /* SPACING */
+  --spacing-half: 4px;
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+
+  /* FONTSIZE */
+  --typography-size-caption: 12px;
+
+  /* FONT WEIGHT */
+  --typography-weight-bold: 600px;
+
+  /* TYPOGRAPHY */
+  --typography-face: "Montserrat", sans-serif;
+}
+
+/* TYPOGRAPHY */
+p, h1, h2, h3, h4, h5, h6 {
+  font-family: var(--typography-face);
+}
+
+.caption {
+  margin: 0;
+  color: var(--mui-palette-primary-white);
+  font-size: var(--typography-size-caption);
 }
 
 /* BOX STYLING */
