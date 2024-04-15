@@ -7,6 +7,7 @@ import { axiosReq } from '../api/axiosDefaults.ts';
 import FormInput from './FormInput.tsx';
 import { Language } from '../types/Language.ts';
 import FormDropdown from './FormDropdown.tsx';
+import { handleError } from '../utils/handleError.ts';
 
 type Props = {
   open: boolean;
@@ -115,26 +116,20 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
     }
   };
 
-  const handleError = (data: any) => {
-    if (!errors) return '';
-    const found = errors[data];
-    return found ? found[0] : undefined;
-  };
-
   return (
     <ModalBase open={open} setOpen={setOpen}>
       <div className={'boxInner'}>
         <FormInput
           label={'title'}
           value={location.title as string}
-          error={handleError('title')}
+          error={handleError('title', errors)}
           onChange={value => onChange('title', value)}
         />
 
         <FormDropdown
           data={lang}
           label={'language'}
-          error={handleError('language')}
+          error={handleError('language', errors)}
           selected={location.language as string}
           onChange={event => onChange('language', event)}
         />
@@ -145,7 +140,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
           type={'tel'}
           label={'phone'}
           value={location.phone as string}
-          error={handleError('phone')}
+          error={handleError('phone', errors)}
           onChange={value => onChange('phone', value)}
         />
 
@@ -153,7 +148,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
           type={'email'}
           label={'email'}
           value={location.email as string}
-          error={handleError('email')}
+          error={handleError('email', errors)}
           onChange={value => onChange('email', value)}
         />
       </div>
@@ -162,14 +157,14 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         <FormInput
           label={'street number'}
           value={location.streetNum as string}
-          error={handleError('streetNum')}
+          error={handleError('streetNum', errors)}
           onChange={value => onChange('streetNum', value)}
         />
 
         <FormInput
           label={'street name'}
           value={location.street as string}
-          error={handleError('street')}
+          error={handleError('street', errors)}
           onChange={value => onChange('street', value)}
         />
       </div>
@@ -178,14 +173,14 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         <FormInput
           label={'area'}
           value={location.area as string}
-          error={handleError('area')}
+          error={handleError('area', errors)}
           onChange={value => onChange('area', value)}
         />
 
         <FormInput
           label={'city'}
           value={location.city as string}
-          error={handleError('city')}
+          error={handleError('city', errors)}
           onChange={value => onChange('city', value)}
         />
 
@@ -193,7 +188,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
           type={'number'}
           label={'post code'}
           value={location.postcode as string}
-          error={handleError('postcode')}
+          error={handleError('postcode', errors)}
           onChange={value => onChange('postcode', value)}
         />
       </div>
@@ -201,7 +196,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
       <FormInput
         label={'description'}
         value={location.description as string}
-        error={handleError('description')}
+        error={handleError('description', errors)}
         onChange={value => onChange('description', value)}
       />
 
@@ -209,7 +204,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         type={'url'}
         value={location.gRating as string}
         label={'google ratings url'}
-        error={handleError('gRating')}
+        error={handleError('gRating', errors)}
         onChange={value => onChange('gRating', value)}
       />
 
@@ -217,7 +212,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         type={'url'}
         label={'google map url'}
         value={location.gMap as string}
-        error={handleError('gMap')}
+        error={handleError('gMap', errors)}
         onChange={value => onChange('gMap', value)}
       />
 
