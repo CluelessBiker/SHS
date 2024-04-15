@@ -6,6 +6,10 @@ import AboutPage from './pages/AboutPage';
 import LocationsPage from './pages/LocationsPage';
 import LoginPage from './pages/LoginPage';
 import './api/axiosDefaults';
+import ServicesPage from './pages/ServicesPage.tsx';
+import PractitionersPage from './pages/PractitionersPage.tsx';
+import ContactPage from './pages/ContactPage.tsx';
+import Footer from './components/Footer.tsx';
 
 function App() {
   return (
@@ -15,14 +19,14 @@ function App() {
         <Route path={'/'} element={<HomePage />} />
         <Route path={'/about'} element={<AboutPage />} />
         <Route path={'/locations'} element={<LocationsPage />} />
-        <Route path={'/services'} element={<></>} />
-        <Route path={'/practitioners'} element={<></>} />
-        <Route path={'/contact'} element={<></>} />
+        <Route path={'/services'} element={<ServicesPage />} />
+        <Route path={'/practitioners'} element={<PractitionersPage />} />
+        <Route path={'/contact'} element={<ContactPage />} />
         <Route path={'/login'} element={<LoginPage />} />
         {/* FIXME: replace with 404 page later */}
         <Route element={<h1>Page not found</h1>} />
       </Routes>
-      <p>eventual footer</p>
+      <Footer />
     </div>
   );
 }
