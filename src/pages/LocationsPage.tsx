@@ -42,28 +42,31 @@ const LocationsPage = () => {
   };
 
   return (
-    <div className={'boxInner'}>
-      {locations.length > 0 &&
-        locations.map((data: Location) => (
-          <LocationData
-            data={data}
-            key={data.id}
-            handleEdit={() => handleEdit(data)}
-            handleDelete={() => {
-              setLocation(data);
-              setOpenDelete(true);
-            }}
-          />
-        ))}
+    <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
+      <h1 className={'pageTitle'}>{t('navbar.locations')}</h1>
+      <div className={'boxContentContainer'}>
+        {locations.length > 0 &&
+          locations.map((data: Location) => (
+            <LocationData
+              data={data}
+              key={data.id}
+              handleEdit={() => handleEdit(data)}
+              handleDelete={() => {
+                setLocation(data);
+                setOpenDelete(true);
+              }}
+            />
+          ))}
 
-      <ModalConfirmDelete
-        open={openDelete}
-        setOpen={setOpenDelete}
-        handleDelete={handleDelete}
-        text={t('generic.location')}
-      />
+        <ModalConfirmDelete
+          open={openDelete}
+          setOpen={setOpenDelete}
+          handleDelete={handleDelete}
+          text={t('generic.location')}
+        />
 
-      <ModalLocation data={location} open={openEdit} setOpen={setOpenEdit} />
+        <ModalLocation data={location} open={openEdit} setOpen={setOpenEdit} />
+      </div>
     </div>
   );
 };
