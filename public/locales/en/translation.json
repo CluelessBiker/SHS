@@ -1,6 +1,4 @@
 {
-  "welcome": "Welcome!",
-  "greeting": "Hello, {{name}}!",
   "navbar": {
     "about": "about",
     "practitioners": "practitioners",
@@ -27,6 +25,12 @@
       "noUndo": "This action cannot be undone."
     }
   },
+  "about": {
+    "tagLine": "Discover a Path to Wellness",
+    "tagDescriptor": "Take the first step towards a healthier, happier you. Schedule a consultation with us today and experience the difference chiropractic care can make in your life. Together, we'll embark on a journey towards optimal health and vitality.",
+    "ourStory": "our story",
+    "ourStryTxt": "Our team of qualified and experienced professionals have been helping patients regain their health and wellness in Athens since 2004. We use scientifically validated, evidence-based treatments to solve our patients' health problems. Contact us today to learn how our exceptional Chiropractic Clinic and Acupuncture can help make you feel like yourself once more."
+  },
   "services": {
     "offered": "Services offered"
   },
@@ -36,7 +40,11 @@
   "contact": {
     "contactUs": "Contact us",
     "form": {
-
+      "name": "name",
+      "subj": "subject",
+      "msg": "message",
+      "phn": "phone",
+      "eml": "email"
     }
   }
 }

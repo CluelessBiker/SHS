@@ -1,11 +1,32 @@
 {
-  "welcome": "Bienvenue !",
-  "greeting": "Salut, {{name}} !",
   "navbar": {
     "about": "à propos",
-    "practitioners": "praticien(ne)s",
-    "services": "service",
+    "practitioners": "praticiens",
+    "services": "services",
     "locations": "emplacements",
-    "contact": "contact"
+    "contact": "contact",
+    "logOut": "déconnexion",
+    "addLoc": "+ Emplacement"
+  },
+  "generic": {
+    "location": "emplacement"
+  },
+  "buttons": {
+    "addItem": "ajouter {{item}}",
+    "editItem": "modifier {{item}}",
+    "cancel": "annuler",
+    "del": "supprimer",
+    "submit": "Soumettre",
+    "bookNow": "réserver maintenant"
+  },
+  "modals": {
+    "confirmDelete": {
+      "sure": "Êtes-vous sûr de vouloir supprimer ce {{item}}?",
+      "noUndo": "Cette action ne peut pas être annulée."
+    }
+  },
+  "about": {
+    "tagLine": "Découvrez un Chemin vers le Bien-Être",
+    "tagDescriptor": "Faites le premier pas vers un vous plus sain et plus heureux. Prenez rendez-vous"
   }
 }
