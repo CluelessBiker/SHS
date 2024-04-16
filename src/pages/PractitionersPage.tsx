@@ -22,13 +22,13 @@ const PractitionersPage = () => {
     fetchPractitioners();
   }, []);
 
-  console.log(practitioners);
-
   return (
-    <div>
-      <h3>{t('practitioners.pract')}</h3>
-      {practitioners.length > 0 &&
-        practitioners.map((it: Practitioner) => <PractitionerData data={it} />)}
+    <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
+      <h1 className={'pageTitle'}>{t('practitioners.pract')}</h1>
+      <div className={'boxContentContainer'}>
+        {practitioners.length > 0 &&
+          practitioners.map((it: Practitioner) => <PractitionerData data={it} />)}
+      </div>
     </div>
   );
 };
