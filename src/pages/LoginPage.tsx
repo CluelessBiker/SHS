@@ -45,8 +45,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={'boxInner'}>
-      <div className={'boxInner'}>
+    <div>
+      <div>
         <FormInput
           label={'username'}
           value={login.username}
