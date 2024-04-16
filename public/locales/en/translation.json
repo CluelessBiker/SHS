@@ -44,7 +44,8 @@
       "subj": "subject",
       "msg": "message",
       "phn": "phone",
-      "eml": "email"
+      "eml": "email",
+      "adr": "address"
     }
   }
 }
