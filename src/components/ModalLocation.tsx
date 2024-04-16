@@ -118,7 +118,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
 
   return (
     <ModalBase open={open} setOpen={setOpen}>
-      <div className={'boxInner'}>
+      <div>
         <FormInput
           label={'title'}
           value={location.title as string}
@@ -135,7 +135,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         />
       </div>
 
-      <div className={'boxInner'}>
+      <div>
         <FormInput
           type={'tel'}
           label={'phone'}
@@ -153,7 +153,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         />
       </div>
 
-      <div className={'boxInner'}>
+      <div>
         <FormInput
           label={'street number'}
           value={location.streetNum as string}
@@ -169,7 +169,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         />
       </div>
 
-      <div className={'boxInner'}>
+      <div>
         <FormInput
           label={'area'}
           value={location.area as string}
