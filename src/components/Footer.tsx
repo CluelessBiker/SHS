@@ -2,9 +2,15 @@ import IconFB from '../assets/svgs/IconFB.tsx';
 import IconIG from '../assets/svgs/IconIG.tsx';
 import footer from '../styles/Footer.module.css';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const year = moment().year();
+  const { i18n } = useTranslation();
+
+  const changeLang = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
 
   return (
     <div className={footer.footerMain}>
@@ -27,6 +33,11 @@ const Footer = () => {
         </a>
       </div>
       <p className={'caption'}>©{year} System Health & Spine</p>
+      <div className={footer.lang}>
+        <button onClick={() => changeLang('en')}>EN</button>
+        <button onClick={() => changeLang('el')}>EL</button>
+        <button onClick={() => changeLang('fr')}>FR</button>
+      </div>
     </div>
   );
 };
