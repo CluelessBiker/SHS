@@ -1,0 +1,26 @@
+.heroBox {
+    background-size: cover;
+    justify-content: center;
+    background-position-y: 32%;
+    background-image: url('../assets/images/pexels-engin-akyurt-1493703.jpg')
+}
+
+.midImg {
+    background-size: cover;
+    justify-content: center;
+    background-position-y: 32%;
+    background-image: url('../assets/images/pexels-neosiam-+-1084718.jpg')
+}
+
+.heroTag, .story {
+    max-width: 500px;
+    text-align: center;
+}
+
+.heroTag > h2, .heroTag > p {
+    color: var(--mui-palette-primary-white);
+}
+
+.heroTag > h2, .story > h2 {
+    text-transform: uppercase;
+}
