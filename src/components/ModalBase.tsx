@@ -20,7 +20,7 @@ const ModalBase: FC<Props> = ({ open, setOpen, children }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className={`boxes ${styles.modal}`}>{children}</Box>
+        <Box className={`${styles.modal}`}>{children}</Box>
       </Modal>
     </div>
   );
