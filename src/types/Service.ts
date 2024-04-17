@@ -1,6 +1,7 @@
 import { Location } from './Location.ts';
 
 export type Service = {
+  id: string;
   locations: Location[];
   createdAt: string;
   updatedAt: string;
