@@ -1,0 +1,55 @@
+const servicesEN = [
+  {
+    locations: [{ title: 'Athens' }],
+    title: 'chiropractic',
+    blurb: 'Re-aligning Your Body',
+    price: '',
+    duration: '',
+    description:
+      'Chiropractic focuses on the spine and other joints of the body, with their connection to the nervous system. The word “chiropractic” means “to be done by hand.” As primary health care providers, chiropractors use specific adjustments to restore joint function and support the nervous system. They help patients maintain optimal health while avoiding unnecessary drugs or surgery. Please click on any of the issues underneath that we can help you with.',
+    image: '',
+    language: 'en',
+  },
+  {
+    locations: [{ title: 'Athens' }],
+    title: 'acupuncture',
+    blurb: '',
+    price: '',
+    duration: '',
+    description: '',
+    image: '',
+    language: 'en',
+  },
+  {
+    locations: [{ title: 'Athens' }],
+    title: 'Clinical Nutritional Counselling',
+    blurb: '',
+    price: '',
+    duration: '',
+    description: '',
+    image: '',
+    language: 'en',
+  },
+  {
+    locations: [{ title: 'Athens' }],
+    title: 'Sport Specific Care',
+    blurb: '',
+    price: '',
+    duration: '',
+    description: '',
+    image: '',
+    language: 'en',
+  },
+  {
+    locations: [{ title: 'Athens' }],
+    title: 'Postural Correction',
+    blurb: '',
+    price: '',
+    duration: '',
+    description: '',
+    image: '',
+    language: 'en',
+  },
+];
+
+export { servicesEN };
