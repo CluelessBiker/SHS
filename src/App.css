@@ -127,6 +127,12 @@ a:link, a:hover {
   flex-direction: column;
 }
 
+.boxHorizontalGap {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-1);
+}
+
 /* IMAGES STYLING */
 
 .roundImage {
