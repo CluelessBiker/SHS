@@ -30,7 +30,7 @@ const LoginPage = () => {
     try {
       const { data } = axios.post('/dj-rest-auth/login/', login);
       setCurrentUser(data.user);
-      navigate('/');
+      navigate('/about');
     } catch (error: any) {
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
