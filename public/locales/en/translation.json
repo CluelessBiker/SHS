@@ -26,6 +26,9 @@
     }
   },
   "about": {
+    "personal": "Personal Experience",
+    "available": "available at",
+    "provides": "provides",
     "tagLine": "Discover a Path to Wellness",
     "tagDescriptor": "Take the first step towards a healthier, happier you. Schedule a consultation with us today and experience the difference chiropractic care can make in your life. Together, we'll embark on a journey towards optimal health and vitality.",
     "ourStory": "our story",
