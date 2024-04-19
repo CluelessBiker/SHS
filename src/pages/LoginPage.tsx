@@ -35,7 +35,7 @@ const LoginPage = () => {
       );
       const data: User = response.data;
       setCurrentUser(data.user);
-      navigate('/about');
+      navigate('/');
     } catch (error: any) {
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
