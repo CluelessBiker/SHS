@@ -19,7 +19,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const imageInput = useRef(null);
+  const imageInput = useRef<HTMLInputElement>(null);
 
   const [errors, setErrors] = useState<any>({});
   const [lang, setLang] = useState<Language[]>([]);
@@ -80,7 +80,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
     }
   };
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const formData = new FormData();
 
@@ -96,7 +96,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
     formData.append('language', location.language as string);
     formData.append('area', location.area as string);
     formData.append('description', location.description as string);
-    if (imageInput?.current?.files[0]) {
+    if (imageInput.current?.files && imageInput.current.files[0]) {
       formData.append('image', imageInput.current.files[0]);
     }
 
