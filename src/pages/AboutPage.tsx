@@ -7,6 +7,7 @@ const AboutPage = () => {
 
   return (
     <>
+      {/*HERO SECTION*/}
       <div className={`${abt.heroBox} boxImageText`}>
         <div className={abt.heroTag}>
           <h2>{t('about.tagLine')}</h2>
@@ -14,11 +15,15 @@ const AboutPage = () => {
         </div>
         <BtnBookNow />
       </div>
+
+      {/*OUR STORY*/}
       <div className={'boxImageText'}>
+        <div className={'horizontalRule'} />
         <div className={abt.story}>
           <h2>{t('about.ourStory')}</h2>
           <p>{t('about.ourStryTxt')}</p>
         </div>
+        <div className={'horizontalRule'} />
       </div>
 
       <div className={`${abt.midImg} boxImageText`} />
