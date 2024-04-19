@@ -73,7 +73,7 @@ function Navbar() {
       }}
     >
       <Toolbar disableGutters style={{ justifyContent: 'space-between' }}>
-        <a className={nav.logo} href={'/about'}>
+        <a className={nav.logo} href={'/'}>
           <IconSHSLogo
             width={'50px'}
             height={'50px'}
