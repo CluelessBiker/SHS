@@ -17,6 +17,7 @@ const ContactPage = () => {
     message: '',
     email: '',
     phone: '',
+    read: false,
   });
 
   const onChange = (fieldName: string, event: ChangeEvent<HTMLInputElement>) => {
@@ -42,28 +43,26 @@ const ContactPage = () => {
   };
 
   return (
-    <div>
-      <h3>{t('contact.contactUs')}</h3>
-      <div>
+    <div className={'boxContentContainer'}>
+      <div className={'boxVerticalGap boxContent'}>
+        <h3>{t('contact.contactUs')}</h3>
         <FormInput
+          required
           label={'name'}
           value={contact.name}
           error={handleError('name', errors)}
           onChange={value => onChange('name', value)}
         />
         <FormInput
-          label={'subject'}
-          value={contact.subject}
-          error={handleError('subject', errors)}
-          onChange={value => onChange('subject', value)}
+          required
+          type={'email'}
+          label={'email'}
+          value={contact.email}
+          error={handleError('email', errors)}
+          onChange={value => onChange('email', value)}
         />
         <FormInput
-          label={'message'}
-          value={contact.message}
-          error={handleError('message', errors)}
-          onChange={value => onChange('message', value)}
-        />
-        <FormInput
+          required
           type={'tel'}
           label={'phone'}
           value={contact.phone}
@@ -71,11 +70,18 @@ const ContactPage = () => {
           onChange={value => onChange('phone', value)}
         />
         <FormInput
-          type={'email'}
-          label={'email'}
-          value={contact.email}
-          error={handleError('email', errors)}
-          onChange={value => onChange('email', value)}
+          required
+          label={'subject'}
+          value={contact.subject}
+          error={handleError('subject', errors)}
+          onChange={value => onChange('subject', value)}
+        />
+        <FormInput
+          required
+          label={'message'}
+          value={contact.message}
+          error={handleError('message', errors)}
+          onChange={value => onChange('message', value)}
         />
 
         <button onClick={handleSubmit}>{t('buttons.submit')}</button>
