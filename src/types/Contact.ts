@@ -5,4 +5,5 @@ export type Contact = {
   message: string;
   email: string;
   phone: string;
+  read: boolean;
 };
