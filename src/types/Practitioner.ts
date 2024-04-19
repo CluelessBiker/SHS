@@ -6,8 +6,10 @@ export type Practitioner = {
   services: Service[];
   createdAt: string;
   updatedAt: string;
+  prefix: string;
   fName: string;
   lName: string;
+  degree: string;
   title: string;
   bio: string;
   image: string;
