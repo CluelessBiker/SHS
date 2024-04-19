@@ -1,8 +1,9 @@
 import { useState, useContext } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { SetCurrentUserContext } from '../context/CurrentUserContext.tsx';
 import FormInput from '../components/FormInput.tsx';
+import { User } from '../types/User.ts';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -28,7 +29,11 @@ const LoginPage = () => {
   const handleLogin = async (event: any) => {
     event.preventDefault();
     try {
-      const { data } = axios.post('/dj-rest-auth/login/', login);
+      const response: AxiosResponse<User> = await axios.post(
+        '/dj-rest-auth/login/',
+        login,
+      );
+      const data: User = response.data;
       setCurrentUser(data.user);
       navigate('/about');
     } catch (error: any) {
