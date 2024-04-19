@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       <div className={'bodyInner'}>
         <Routes>
-          <Route path={'/about'} element={<AboutPage />} />
+          <Route path={'/'} element={<AboutPage />} />
           <Route path={'/locations'} element={<LocationsPage />} />
           <Route path={'/services'} element={<ServicesPage />} />
           <Route path={'/practitioners'} element={<PractitionersPage />} />
