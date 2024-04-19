@@ -22,11 +22,18 @@ const PractitionersPage = () => {
     fetchPractitioners();
   }, []);
 
+  /**
+   * Fix sort order to display owner (primary) first
+   */
+  const primaryFirst = (data: Practitioner[]) => {
+    return data.sort((it: any) => (it.primary ? -1 : 1));
+  };
+
   return (
     <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
       <h1 className={'pageTitle'}>{t('practitioners.pract')}</h1>
       <div className={'boxContentContainer'}>
-        {practitioners.length > 0 &&
+        {primaryFirst(practitioners).length > 0 &&
           practitioners.map((it: Practitioner) => <PractitionerData data={it} />)}
       </div>
     </div>
