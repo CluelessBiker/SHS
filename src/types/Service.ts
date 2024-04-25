@@ -1,4 +1,4 @@
-import { Location } from './Location.ts';
+import { Location } from './Location';
 
 export type Service = {
   id: string;

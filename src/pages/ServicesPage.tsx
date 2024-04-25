@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { Service } from '../types/Service.ts';
+import { Service } from '../types/Service';
 import { useEffect, useState } from 'react';
-import { axiosReq } from '../api/axiosDefaults.ts';
-import ServiceData from '../components/ServiceData.tsx';
+import { axiosReq } from '../api/axiosDefaults';
+import ServiceData from '../components/ServiceData';
 
 const ServicesPage = () => {
   const { t } = useTranslation();

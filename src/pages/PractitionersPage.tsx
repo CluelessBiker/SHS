@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
-import { axiosReq } from '../api/axiosDefaults.ts';
-import { Practitioner } from '../types/Practitioner.ts';
-import PractitionerData from '../components/PractitionerData.tsx';
+import { axiosReq } from '../api/axiosDefaults';
+import { Practitioner } from '../types/Practitioner';
+import PractitionerData from '../components/PractitionerData';
 
 const PractitionersPage = () => {
   const { t } = useTranslation();
@@ -26,7 +26,7 @@ const PractitionersPage = () => {
    * Fix sort order to display owner (primary) first
    */
   const primaryFirst = (data: Practitioner[]) => {
-    return data.sort((it: any) => (it.primary ? -1 : 1));
+    return data.sort((it: Practitioner) => (it.primary ? -1 : 1));
   };
 
   return (
@@ -34,7 +34,9 @@ const PractitionersPage = () => {
       <h1 className={'pageTitle'}>{t('practitioners.pract')}</h1>
       <div className={'boxContentContainer'}>
         {primaryFirst(practitioners).length > 0 &&
-          practitioners.map((it: Practitioner) => <PractitionerData data={it} />)}
+          practitioners.map((it: Practitioner) => (
+            <PractitionerData key={it.id} data={it} />
+          ))}
       </div>
     </div>
   );

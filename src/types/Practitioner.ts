@@ -1,7 +1,8 @@
-import { Location } from './Location.ts';
-import { Service } from './Service.ts';
+import { Location } from './Location';
+import { Service } from './Service';
 
 export type Practitioner = {
+  id: string;
   locations: Location[];
   services: Service[];
   createdAt: string;
@@ -15,4 +16,5 @@ export type Practitioner = {
   image: string;
   personalExperience: string;
   language: string;
+  primary: boolean;
 };

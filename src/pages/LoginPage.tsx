@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { SetCurrentUserContext } from '../context/CurrentUserContext.tsx';
-import FormInput from '../components/FormInput.tsx';
-import { User } from '../types/User.ts';
+import { SetCurrentUserContext } from '../context/CurrentUserContext';
+import FormInput from '../components/FormInput';
+import { User } from '../types/User';
 
 const LoginPage = () => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Practitioner } from '../types/Practitioner.ts';
+import { Practitioner } from '../types/Practitioner';
 import { useTranslation } from 'react-i18next';
 
 type Props = {

@@ -1,6 +1,6 @@
-import { Service } from '../types/Service.ts';
+import { Service } from '../types/Service';
 import { FC } from 'react';
-import { Location } from '../types/Location.ts';
+import { Location } from '../types/Location';
 
 type Props = {
   data: Service;

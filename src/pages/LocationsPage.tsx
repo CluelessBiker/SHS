@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { axiosReq, axiosRes } from '../api/axiosDefaults.ts';
-import LocationData from '../components/LocationData.tsx';
-import ModalConfirmDelete from '../components/ModalConfirmDelete.tsx';
+import { axiosReq, axiosRes } from '../api/axiosDefaults';
+import LocationData from '../components/LocationData';
+import ModalConfirmDelete from '../components/ModalConfirmDelete';
 import { useTranslation } from 'react-i18next';
-import ModalLocation from '../components/ModalLocation.tsx';
-import { Location } from '../types/Location.ts';
+import ModalLocation from '../components/ModalLocation';
+import { Location } from '../types/Location';
 
 const LocationsPage = () => {
   const { t } = useTranslation();

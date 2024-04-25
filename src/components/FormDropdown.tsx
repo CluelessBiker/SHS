@@ -1,6 +1,6 @@
 import { ChangeEvent, FC } from 'react';
 import styles from '../styles/FormInput.module.css';
-import { Language } from '../types/Language.ts';
+import { Language } from '../types/Language';
 
 type Props = {
   label: string;

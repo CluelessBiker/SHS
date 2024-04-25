@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { ChangeEvent, useState } from 'react';
-import { Contact } from '../types/Contact.ts';
-import { handleError } from '../utils/handleError.ts';
-import FormInput from '../components/FormInput.tsx';
-import { axiosReq } from '../api/axiosDefaults.ts';
+import { Contact } from '../types/Contact';
+import { handleError } from '../utils/handleError';
+import FormInput from '../components/FormInput';
+import { axiosReq } from '../api/axiosDefaults';
 import { useNavigate } from 'react-router-dom';
 
 const ContactPage = () => {
