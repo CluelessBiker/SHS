@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,15 +12,15 @@ import MenuItem from '@mui/material/MenuItem';
 import IconGear from '../assets/svgs/IconGear';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext.tsx';
+import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
 import axios from 'axios';
-import ModalLocation from './ModalLocation.tsx';
-import IconSHSLogo from '../assets/svgs/IconSHSLogo.tsx';
+import ModalLocation from './ModalLocation';
+import IconSHSLogo from '../assets/svgs/IconSHSLogo';
 import nav from '../styles/Navbar.module.css';
-import BtnBookNow from './BtnBookNow.tsx';
+import BtnBookNow from './BtnBookNow';
 
 const pages = [
-  { text: 'navbar.about', link: 'about' },
+  { text: 'navbar.about', link: '' },
   { text: 'navbar.locations', link: 'locations' },
   { text: 'navbar.services', link: 'services' },
   { text: 'navbar.practitioners', link: 'practitioners' },
