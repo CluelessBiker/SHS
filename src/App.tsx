@@ -5,10 +5,10 @@ import AboutPage from './pages/AboutPage';
 import LocationsPage from './pages/LocationsPage';
 import LoginPage from './pages/LoginPage';
 import './api/axiosDefaults';
-import ServicesPage from './pages/ServicesPage.tsx';
-import PractitionersPage from './pages/PractitionersPage.tsx';
-import ContactPage from './pages/ContactPage.tsx';
-import Footer from './components/Footer.tsx';
+import ServicesPage from './pages/ServicesPage';
+import PractitionersPage from './pages/PractitionersPage';
+import ContactPage from './pages/ContactPage';
+import Footer from './components/Footer';
 
 function App() {
   return (
