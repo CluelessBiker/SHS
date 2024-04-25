@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { Location } from '../types/Location.ts';
-import { useCurrentUser } from '../context/CurrentUserContext.tsx';
-import IconEdit from '../assets/svgs/IconEdit.tsx';
-import IconDelete from '../assets/svgs/IconDelete.tsx';
+import { Location } from '../types/Location';
+import { useCurrentUser } from '../context/CurrentUserContext';
+import IconEdit from '../assets/svgs/IconEdit';
+import IconDelete from '../assets/svgs/IconDelete';
 import btn from '../styles/Buttons.module.css';
 import { useTranslation } from 'react-i18next';
 
