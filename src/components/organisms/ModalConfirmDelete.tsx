@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import ModalBase from './ModalBase';
+import ModalBase from '../molecules/ModalBase';
 
 type Props = {
   text: string;
