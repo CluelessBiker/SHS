@@ -1,31 +1,26 @@
 import { FC } from 'react';
-import { Practitioner } from '../types/Practitioner';
+import ModalBase from '../molecules/ModalBase';
+import { Practitioner } from '../../types/Practitioner';
 import { useTranslation } from 'react-i18next';
+import TextContentTitle from '../atoms/TextContentTitle';
 
 type Props = {
+  open: boolean;
   data: Practitioner;
+  setOpen: (value: boolean) => void;
 };
 
-const PractitionerData: FC<Props> = ({ data }) => {
+const ModalPractDetails: FC<Props> = ({ open, data, setOpen }) => {
   const { t } = useTranslation();
 
   return (
-    <div className={'boxContent boxVerticalGap'}>
+    <ModalBase open={open} setOpen={setOpen}>
       <div className={'boxVerticalGap'}>
-        <h3 className={'contentTitle'}>
+        <TextContentTitle>
           {data.prefix && data.prefix + ' '}
           {data.fName} {data.lName}
           {data.degree && ' ' + data.degree}
-        </h3>
-        <h4 className={'subTitle'}>{data.title}</h4>
-        <img
-          src={data.image}
-          className={'roundImage'}
-          alt={`${data.title} image`}
-          aria-label={`${data.title} image`}
-        />
-      </div>
-      <div className={'boxVerticalGap'}>
+        </TextContentTitle>
         <p className={'paragraphs'}>
           <pre style={{ textWrap: 'wrap' }}>{data.bio}</pre>
         </p>
@@ -43,8 +38,8 @@ const PractitionerData: FC<Props> = ({ data }) => {
           {data.services.length > 0 && data.services.map(it => <> {it.title}.</>)}
         </p>
       </div>
-    </div>
+    </ModalBase>
   );
 };
 
-export default PractitionerData;
+export default ModalPractDetails;
