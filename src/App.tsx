@@ -8,7 +8,7 @@ import './api/axiosDefaults';
 import ServicesPage from './pages/ServicesPage';
 import PractitionersPage from './pages/PractitionersPage';
 import ContactPage from './pages/ContactPage';
-import Footer from './components/Footer';
+import Footer from './components/organisms/Footer';
 
 function App() {
   return (
