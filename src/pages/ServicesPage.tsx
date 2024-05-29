@@ -3,6 +3,7 @@ import { Service } from '../types/Service';
 import { useEffect, useState } from 'react';
 import { axiosReq } from '../api/axiosDefaults';
 import ServiceData from '../components/ServiceData';
+import TextPageHeading from '../components/atoms/TextPageHeading';
 
 const ServicesPage = () => {
   const { t } = useTranslation();
@@ -24,7 +25,7 @@ const ServicesPage = () => {
 
   return (
     <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
-      <h3 className={'pageTitle'}>{t('services.offered')}</h3>
+      <TextPageHeading>{t('services.offered')}</TextPageHeading>
       <div className={'boxContentContainer'}>
         {services &&
           services.map((data: Service) => <ServiceData data={data} key={data.id} />)}
