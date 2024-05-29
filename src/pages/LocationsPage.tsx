@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { axiosReq, axiosRes } from '../api/axiosDefaults';
-import LocationData from '../components/LocationData';
-import ModalConfirmDelete from '../components/ModalConfirmDelete';
+import LocationData from '../components/organisms/LocationData';
+import ModalConfirmDelete from '../components/organisms/ModalConfirmDelete';
 import { useTranslation } from 'react-i18next';
-import ModalLocation from '../components/ModalLocation';
+import ModalLocation from '../components/organisms/ModalLocation';
 import { Location } from '../types/Location';
+import TextPageHeading from '../components/atoms/TextPageHeading';
 
 const LocationsPage = () => {
   const { t } = useTranslation();
@@ -43,7 +44,7 @@ const LocationsPage = () => {
 
   return (
     <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
-      <h1 className={'pageTitle'}>{t('navbar.locations')}</h1>
+      <TextPageHeading>{t('navbar.locations')}</TextPageHeading>
       <div className={'boxContentContainer'}>
         {locations.length > 0 &&
           locations.map((data: Location) => (
