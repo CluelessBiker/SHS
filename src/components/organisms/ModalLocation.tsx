@@ -1,13 +1,13 @@
 import { ChangeEvent, FC, useEffect, useMemo, useRef, useState } from 'react';
-import ModalBase from './ModalBase';
+import ModalBase from '../molecules/ModalBase';
 import { useNavigate } from 'react-router-dom';
-import { Location } from '../types/Location';
+import { Location } from '../../types/Location';
 import { useTranslation } from 'react-i18next';
-import { axiosReq } from '../api/axiosDefaults';
-import FormInput from './FormInput';
-import { Language } from '../types/Language';
-import FormDropdown from './FormDropdown';
-import { handleError } from '../utils/handleError';
+import { axiosReq } from '../../api/axiosDefaults';
+import FormInput from '../molecules/FormInput';
+import { Language } from '../../types/Language';
+import FormDropdown from '../molecules/FormDropdown';
+import { handleError } from '../../utils/handleError';
 
 type Props = {
   open: boolean;
