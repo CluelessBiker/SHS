@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { SetCurrentUserContext } from '../context/CurrentUserContext';
-import FormInput from '../components/FormInput';
+import FormInput from '../components/molecules/FormInput';
 import { User } from '../types/User';
 
 const LoginPage = () => {
