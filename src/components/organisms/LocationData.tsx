@@ -1,10 +1,12 @@
 import { FC } from 'react';
-import { Location } from '../types/Location';
-import { useCurrentUser } from '../context/CurrentUserContext';
-import IconEdit from '../assets/svgs/IconEdit';
-import IconDelete from '../assets/svgs/IconDelete';
-import btn from '../styles/Buttons.module.css';
+import { Location } from '../../types/Location';
+import { useCurrentUser } from '../../context/CurrentUserContext';
+import IconEdit from '../../assets/svgs/IconEdit';
+import IconDelete from '../../assets/svgs/IconDelete';
+import btn from '../../styles/Buttons.module.css';
 import { useTranslation } from 'react-i18next';
+import ImageCont from '../atoms/ImageCont';
+import TextContentTitle from '../atoms/TextContentTitle';
 
 type Props = {
   data: Location;
@@ -19,8 +21,12 @@ const LocationData: FC<Props> = ({ data, handleEdit, handleDelete }) => {
   return (
     <div className={'boxContent boxVerticalGap'}>
       <div className={'boxVerticalGap'}>
-        <h3 className={'contentTitle'}>{data.title}</h3>
-        <img src={data.image} className={'squareImg'} />
+        <TextContentTitle>{data.title}</TextContentTitle>
+        <ImageCont
+          src={data.image}
+          variant={'square'}
+          altText={`${data.title} location`}
+        />
       </div>
       <div className={'boxVerticalGap'}>
         <p>
