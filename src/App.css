@@ -13,6 +13,7 @@
   --spacing-2: 16px;
 
   /* FONTSIZE */
+  --typography-size-error: 10px;
   --typography-size-caption: 12px;
   --typography-size-title: 20px;
   --typography-size-title-lg: 30px;
@@ -48,18 +49,6 @@
   text-transform: uppercase;
   font-size: var(--typography-size-caption);
   font-weight: var(--typography-weight-light);
-}
-
-.pageTitle {
-  text-transform: uppercase;
-  font-size: var(--typography-size-title-exLg);
-  font-weight: var(--typography-weight-ultra-light);
-}
-
-.contentTitle {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: var(--typography-size-title-lg);
 }
 
 .subTitle {
@@ -146,21 +135,6 @@ a:link, a:hover {
 }
 
 /* IMAGES STYLING */
-
-.roundImage {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.squareImg {
-  height: 300px;
-  max-width: 500px;
-  object-fit: cover;
-  border-radius: var(--spacing-half);
-}
-
 iframe {
   border: 0;
   width: 400px;
