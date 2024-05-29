@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ChangeEvent, useState } from 'react';
 import { Contact } from '../types/Contact';
 import { handleError } from '../utils/handleError';
-import FormInput from '../components/FormInput';
+import FormInput from '../components/molecules/FormInput';
 import { axiosReq } from '../api/axiosDefaults';
 import { useNavigate } from 'react-router-dom';
 
