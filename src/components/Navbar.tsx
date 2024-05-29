@@ -14,10 +14,10 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
 import axios from 'axios';
-import ModalLocation from './ModalLocation';
+import ModalLocation from './organisms/ModalLocation';
 import IconSHSLogo from '../assets/svgs/IconSHSLogo';
 import nav from '../styles/Navbar.module.css';
-import BtnBookNow from './BtnBookNow';
+import BtnBookNow from './atoms/BtnBookNow';
 
 const pages = [
   { text: 'navbar.about', link: '' },
