@@ -1,6 +1,6 @@
-import IconFB from '../assets/svgs/IconFB';
-import IconIG from '../assets/svgs/IconIG';
-import footer from '../styles/Footer.module.css';
+import IconFB from '../../assets/svgs/IconFB';
+import IconIG from '../../assets/svgs/IconIG';
+import footer from '../../styles/Footer.module.css';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 
