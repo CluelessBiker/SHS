@@ -1,5 +1,8 @@
 import { ChangeEvent, FC } from 'react';
-import styles from '../styles/FormInput.module.css';
+import InputContainer from '../atoms/InputContainer';
+import InputLabel from '../atoms/InputLabel';
+import InputError from '../atoms/InputError';
+import InputField from '../atoms/InputField';
 
 type Props = {
   type?: string;
@@ -19,22 +22,18 @@ const FormInput: FC<Props> = ({
   required = false,
 }) => {
   return (
-    <div className={styles.inputBox}>
-      <label className={styles.inputLabel} htmlFor={value as string}>
-        {label}
-        {required && ' *'}
-      </label>
-      <input
+    <InputContainer>
+      <InputLabel htmlFor={value as string} label={label + required && ' *'} />
+      <InputField
         type={type}
         value={value}
+        label={label}
         required={required}
         onChange={onChange}
-        id={value as string}
-        className={styles.input}
         aria-label={`${label} input field`}
       />
-      {error && <p className={styles.inputP}>{error}</p>}
-    </div>
+      {error && <InputError error={error} />}
+    </InputContainer>
   );
 };
 
