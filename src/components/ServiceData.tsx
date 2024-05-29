@@ -1,6 +1,8 @@
 import { Service } from '../types/Service';
 import { FC } from 'react';
 import { Location } from '../types/Location';
+import ImageCont from './atoms/ImageCont';
+import TextContentTitle from './atoms/TextContentTitle';
 
 type Props = {
   data: Service;
@@ -10,13 +12,9 @@ const ServiceData: FC<Props> = ({ data }) => {
   return (
     <div className={'boxContent boxVerticalGap'}>
       <div className={'boxVerticalGap'}>
-        <h3 className={'contentTitle'}>{data.title}</h3>
-        <img
-          src={data.image}
-          className={'roundImage'}
-          alt={`${data.title} image`}
-          aria-label={`${data.title} image`}
-        />
+        <TextContentTitle>{data.title}</TextContentTitle>
+
+        <ImageCont src={data.image} altText={data.title} variant={'large'} />
       </div>
       <div className={'boxVerticalGap'}>
         <p>{data.blurb}</p>
