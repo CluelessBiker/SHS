@@ -6,12 +6,14 @@ import { useTranslation } from 'react-i18next';
 import ModalLocation from '../components/organisms/ModalLocation';
 import { Location } from '../types/Location';
 import TextPageHeading from '../components/atoms/TextPageHeading';
+import ModalLocationDetails from '../components/organisms/ModalLocationDetails';
 
 const LocationsPage = () => {
   const { t } = useTranslation();
 
   const [locations, setLocations] = useState<Location[]>([]);
   const [location, setLocation] = useState<Location>();
+  const [openDetails, setOpenDetails] = useState<boolean>(false);
   const [openEdit, setOpenEdit] = useState<boolean>(false);
   const [openDelete, setOpenDelete] = useState<boolean>(false);
 
@@ -56,6 +58,10 @@ const LocationsPage = () => {
                 setLocation(data);
                 setOpenDelete(true);
               }}
+              handleViewDetails={() => {
+                setLocation(data);
+                setOpenDetails(true);
+              }}
             />
           ))}
 
@@ -66,6 +72,13 @@ const LocationsPage = () => {
           text={t('generic.location')}
         />
 
+        {location && (
+          <ModalLocationDetails
+            data={location}
+            open={openDetails}
+            setOpen={setOpenDetails}
+          />
+        )}
         <ModalLocation data={location} open={openEdit} setOpen={setOpenEdit} />
       </div>
     </div>
