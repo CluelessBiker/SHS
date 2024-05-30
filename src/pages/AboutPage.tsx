@@ -1,5 +1,5 @@
 import abt from '../styles/AboutPage.module.css';
-import BtnBookNow from '../components/atoms/BtnBookNow.tsx';
+import BtnBookNow from '../components/atoms/BtnBookNow';
 import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
