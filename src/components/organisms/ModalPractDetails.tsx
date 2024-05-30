@@ -3,6 +3,7 @@ import ModalBase from '../molecules/ModalBase';
 import { Practitioner } from '../../types/Practitioner';
 import { useTranslation } from 'react-i18next';
 import TextContentTitle from '../atoms/TextContentTitle';
+import TextKeyValue from '../atoms/TextKeyValue';
 
 type Props = {
   open: boolean;
@@ -12,6 +13,11 @@ type Props = {
 
 const ModalPractDetails: FC<Props> = ({ open, data, setOpen }) => {
   const { t } = useTranslation();
+
+  const cities =
+    data.locations.length > 0 ? data.locations.map(it => <> {it.city}.</>) : '';
+  const services =
+    data.services.length > 0 ? data.services.map(it => <> {it.title}.</>) : '';
 
   return (
     <ModalBase open={open} setOpen={setOpen}>
@@ -29,14 +35,8 @@ const ModalPractDetails: FC<Props> = ({ open, data, setOpen }) => {
           <pre style={{ textWrap: 'wrap' }}>{data.personalExperience}</pre>
         </p>
 
-        <p>
-          <span className={'dataLabel paragraphs'}>{t('about.available')}:</span>
-          {data.locations.length > 0 && data.locations.map(it => <> {it.city}.</>)}
-        </p>
-        <p style={{ textAlign: 'center' }}>
-          <span className={'dataLabel'}>{t('about.provides')}:</span>
-          {data.services.length > 0 && data.services.map(it => <> {it.title}.</>)}
-        </p>
+        <TextKeyValue keyLeft={t('about.available')} value={cities as string} />
+        <TextKeyValue keyLeft={t('about.provides')} value={services as string} />
       </div>
     </ModalBase>
   );
