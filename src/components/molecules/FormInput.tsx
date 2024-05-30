@@ -23,7 +23,10 @@ const FormInput: FC<Props> = ({
 }) => {
   return (
     <InputContainer>
-      <InputLabel htmlFor={value as string} label={label + required && ' *'} />
+      <InputLabel
+        htmlFor={value as string}
+        label={`${label}${required ? ' *' : undefined}`}
+      />
       <InputField
         type={type}
         value={value}
