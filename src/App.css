@@ -44,13 +44,6 @@
   font-size: var(--typography-size-caption);
 }
 
-.dataLabel {
-  max-width: 300px;
-  text-transform: uppercase;
-  font-size: var(--typography-size-caption);
-  font-weight: var(--typography-weight-light);
-}
-
 .subTitle {
   text-align: center;
   text-transform: uppercase;
