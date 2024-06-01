@@ -1,7 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-const StyledImg = styled.img`
+interface ImgProps {
+  clickable: boolean;
+}
+
+const StyledImg = styled.img<ImgProps>`
   width: 250px;
   height: 250px;
   object-fit: cover;
@@ -15,6 +19,10 @@ const StyledImg = styled.img`
     height: 300px;
     max-width: 500px;
     border-radius: var(--spacing-half);
+  }
+  &:hover,
+  &:focus {
+    opacity: ${props => (props.clickable ? 0.5 : 1)};
   }
 `;
 
@@ -33,6 +41,7 @@ const ImageCont: FC<Props> = ({ src, onClick, altText, variant }) => {
       className={variant}
       alt={`${altText} image`}
       aria-label={`${altText} image`}
+      clickable={onClick ? true : false}
     />
   );
 };
