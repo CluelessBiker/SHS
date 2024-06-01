@@ -3,12 +3,16 @@ import { FC } from 'react';
 import { Location } from '../types/Location';
 import ImageCont from './atoms/ImageCont';
 import TextContentTitle from './atoms/TextContentTitle';
+import { useTranslation } from 'react-i18next';
+import TextKeyValue from './atoms/TextKeyValue';
 
 type Props = {
   data: Service;
 };
 
 const ServiceData: FC<Props> = ({ data }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={'boxContent boxVerticalGap'}>
       <div className={'boxVerticalGap'}>
@@ -22,17 +26,13 @@ const ServiceData: FC<Props> = ({ data }) => {
       </div>
       <div className={'boxVerticalGap'}>
         {data.duration && (
-          <p>
-            <span className={'dataLabel'}>duration:</span> {data.duration}
-          </p>
+          <TextKeyValue keyLeft={t('generic.duration')} value={data.duration} />
         )}
         {data.price && (
-          <p>
-            <span className={'dataLabel'}>Price:</span> €{data.price}
-          </p>
+          <TextKeyValue keyLeft={t('generic.price')} value={`€${data.price}`} />
         )}
         <div className={'boxHorizontalGap'}>
-          <p className={'dataLabel'}>Offered at:</p>
+          <TextKeyValue keyLeft={t('services.offeredAt')} value={''} />
           {data.locations.map((it: Location) => (
             <p key={it.id}>{it.title}. </p>
           ))}
