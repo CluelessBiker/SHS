@@ -7,15 +7,20 @@ import ModalLocation from '../components/organisms/ModalLocation';
 import { Location } from '../types/Location';
 import TextPageHeading from '../components/atoms/TextPageHeading';
 import ModalLocationDetails from '../components/organisms/ModalLocationDetails';
+import { handleLang } from '../utils/handleLang';
 
 const LocationsPage = () => {
   const { t } = useTranslation();
+  const lang: 'en' | 'el' | 'fr' =
+    (localStorage.getItem('i18nextLng') as 'en' | 'el' | 'fr') || 'en';
 
   const [locations, setLocations] = useState<Location[]>([]);
   const [location, setLocation] = useState<Location>();
   const [openDetails, setOpenDetails] = useState<boolean>(false);
   const [openEdit, setOpenEdit] = useState<boolean>(false);
   const [openDelete, setOpenDelete] = useState<boolean>(false);
+
+  const locationsLang = handleLang<Location>(locations, lang);
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -48,8 +53,8 @@ const LocationsPage = () => {
     <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
       <TextPageHeading>{t('navbar.locations')}</TextPageHeading>
       <div className={'boxContentContainer'}>
-        {locations.length > 0 &&
-          locations.map((data: Location) => (
+        {locationsLang.length > 0 &&
+          locationsLang.map((data: Location) => (
             <LocationData
               data={data}
               key={data.id}
