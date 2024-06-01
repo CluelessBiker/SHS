@@ -9,7 +9,11 @@
     "addLoc": "+ Location"
   },
   "generic": {
-    "location": "location"
+    "location": "location",
+    "duration": "duration",
+    "price": "price",
+    "review": "review",
+    "leaveReview": "leave a"
   },
   "buttons": {
     "addItem": "add {{item}}",
@@ -35,7 +39,8 @@
     "ourStryTxt": "Our team of qualified and experienced professionals have been helping patients regain their health and wellness in Athens since 2004. We use scientifically validated, evidence-based treatments to solve our patients' health problems. Contact us today to learn how our exceptional Chiropractic Clinic and Acupuncture can help make you feel like yourself once more."
   },
   "services": {
-    "offered": "Services offered"
+    "offered": "Services offered",
+    "offeredAt": "offered at"
   },
   "practitioners": {
     "pract": "Our practitioners"
