@@ -1,3 +1,5 @@
+import { Language } from './Language';
+
 export type Location = {
   id: string;
   title: string;
@@ -12,5 +14,5 @@ export type Location = {
   image: string;
   area: string;
   description: string;
-  language: number | string;
+  language: Language;
 };
