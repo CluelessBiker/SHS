@@ -1,5 +1,6 @@
 import { Location } from './Location';
 import { Service } from './Service';
+import { Language } from './Language';
 
 export type Practitioner = {
   id: string;
@@ -15,6 +16,6 @@ export type Practitioner = {
   bio: string;
   image: string;
   personalExperience: string;
-  language: string;
+  language: Language;
   primary: boolean;
 };
