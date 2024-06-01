@@ -5,13 +5,18 @@ import { Practitioner } from '../types/Practitioner';
 import PractitionerData from '../components/organisms/PractitionerData';
 import ModalPractDetails from '../components/organisms/ModalPractDetails';
 import TextPageHeading from '../components/atoms/TextPageHeading';
+import { handleLang } from '../utils/handleLang';
 
 const PractitionersPage = () => {
   const { t } = useTranslation();
+  const lang: 'en' | 'el' | 'fr' =
+    (localStorage.getItem('i18nextLng') as 'en' | 'el' | 'fr') || 'en';
 
   const [details, setDetails] = useState<Practitioner>();
   const [practitioners, setPractitioners] = useState<Practitioner[]>([]);
   const [open, setOpen] = useState<boolean>(false);
+
+  const practitionersLang = handleLang<Practitioner>(practitioners, lang);
 
   useEffect(() => {
     const fetchPractitioners = async () => {
@@ -37,8 +42,8 @@ const PractitionersPage = () => {
     <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
       <TextPageHeading>{t('practitioners.pract')}</TextPageHeading>
       <div className={'boxContentContainer'}>
-        {primaryFirst(practitioners).length > 0 &&
-          practitioners.map((it: Practitioner) => (
+        {practitionersLang.length > 0 &&
+          primaryFirst(practitionersLang).map((it: Practitioner) => (
             <PractitionerData
               data={it}
               key={it.id}
