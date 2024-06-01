@@ -1,4 +1,5 @@
 import { Location } from './Location';
+import { Language } from './Language';
 
 export type Service = {
   id: string;
@@ -11,5 +12,5 @@ export type Service = {
   duration: string;
   description: string;
   image: string;
-  language: string;
+  language: Language;
 };
