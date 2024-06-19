@@ -4,11 +4,11 @@ import { useCurrentUser } from '../../context/CurrentUserContext';
 import { useTranslation } from 'react-i18next';
 import ImageCont from '../atoms/ImageCont';
 import TextContentTitle from '../atoms/TextContentTitle';
-import btn from '../../styles/Buttons.module.css';
 import IconEdit from '../../assets/svgs/IconEdit';
 import IconDelete from '../../assets/svgs/IconDelete';
 import TextKeyValue from '../atoms/TextKeyValue';
 import BoxCard from '../atoms/BoxCard';
+import Button from '../atoms/Button';
 
 type Props = {
   data: Location;
@@ -39,12 +39,16 @@ const LocationData: FC<Props> = ({
 
       {currentUser && (
         <div>
-          <button className={btn.iconButton} onClick={handleEdit}>
-            <IconEdit height={'14px'} />
-          </button>
-          <button className={btn.iconButton} onClick={handleDelete}>
-            <IconDelete height={'14px'} />
-          </button>
+          <Button
+            variant={'icon'}
+            onClick={handleEdit}
+            icon={<IconEdit height={'14px'} />}
+          />
+          <Button
+            variant={'icon'}
+            onClick={handleDelete}
+            icon={<IconDelete height={'14px'} />}
+          />
         </div>
       )}
     </BoxCard>
