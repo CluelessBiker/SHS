@@ -28,5 +28,26 @@
   "about": {
     "tagLine": "Découvrez un Chemin vers le Bien-Être",
     "tagDescriptor": "Faites le premier pas vers un vous plus sain et plus heureux. Prenez rendez-vous"
-  }
+  },
+  "week": {
+    "long": {
+      "sun": "Dimanche",
+      "mon": "Lundi",
+      "tue": "Mardi",
+      "wed": "Mercredi",
+      "thu": "Jeudi",
+      "fri": "Vendredi",
+      "sat": "Samedi"
+    },
+    "short": {
+      "sun": "Dim",
+      "mon": "Lun",
+      "tue": "Mar",
+      "wed": "Mer",
+      "thu": "Jeu",
+      "fri": "Ven",
+      "sat": "Sam"
+    }
+  },
+  "clinicHours": "heures de clinique"
 }
