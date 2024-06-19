@@ -5,6 +5,7 @@ import ImageCont from './atoms/ImageCont';
 import TextContentTitle from './atoms/TextContentTitle';
 import { useTranslation } from 'react-i18next';
 import TextKeyValue from './atoms/TextKeyValue';
+import BoxContent from './atoms/BoxContent';
 
 type Props = {
   data: Service;
@@ -14,7 +15,7 @@ const ServiceData: FC<Props> = ({ data }) => {
   const { t } = useTranslation();
 
   return (
-    <div className={'boxContent boxVerticalGap'}>
+    <BoxContent variant={'verticalGap'}>
       <div className={'boxVerticalGap'}>
         <TextContentTitle>{data.title}</TextContentTitle>
 
@@ -38,7 +39,7 @@ const ServiceData: FC<Props> = ({ data }) => {
           ))}
         </div>
       </div>
-    </div>
+    </BoxContent>
   );
 };
 
