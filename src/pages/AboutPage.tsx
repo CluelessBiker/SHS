@@ -1,6 +1,11 @@
-import abt from '../styles/AboutPage.module.css';
 import BtnBookNow from '../components/atoms/BtnBookNow';
 import { useTranslation } from 'react-i18next';
+import HeroImageContainer from '../components/atoms/HeroImageContainer';
+import heroImage from '../assets/images/pexels-daria-liudnaya-8187685.jpg';
+import midImage from '../assets/images/pexels-roman-odintsov-6193699.jpg';
+import BoxSection from '../components/atoms/BoxSection';
+import TextSection from '../components/atoms/TextSection';
+import DividerLine from '../components/atoms/DividerLine';
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -8,33 +13,29 @@ const AboutPage = () => {
   return (
     <>
       {/*HERO SECTION*/}
-      <div className={`${abt.heroBox} boxImageText`}>
-        <div className={abt.heroTag}>
-          <h2>{t('about.tagLine')}</h2>
-          <p>{t('about.tagDescriptor')}</p>
-        </div>
+      <HeroImageContainer img={heroImage}>
+        <TextSection heading text={t('about.tagLine')} />
+        <TextSection text={t('about.tagDescriptor')} />
         <BtnBookNow />
-      </div>
+      </HeroImageContainer>
 
       {/*ELFSIGHT : GOOGLE REVIEWS*/}
-      <div className={'boxImageText'}>
+      <BoxSection>
         <div
           data-elfsight-app-lazy
           className="elfsight-app-8476a6be-7dab-46db-91e0-1d5e544f7c4d"
         />
-      </div>
+      </BoxSection>
 
-      <div className={`${abt.midImg} boxImageText`} />
+      <HeroImageContainer img={midImage} />
 
       {/*OUR STORY*/}
-      <div className={'boxImageText'}>
-        <div className={'horizontalRule'} />
-        <div className={abt.story}>
-          <h2>{t('about.ourStory')}</h2>
-          <p>{t('about.ourStryTxt')}</p>
-        </div>
-        <div className={'horizontalRule'} />
-      </div>
+      <BoxSection>
+        <DividerLine />
+        <TextSection heading text={t('about.ourStory')} />
+        <TextSection text={t('about.ourStryTxt')} />
+        <DividerLine />
+      </BoxSection>
     </>
   );
 };
