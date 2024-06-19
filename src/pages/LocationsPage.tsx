@@ -8,6 +8,8 @@ import { Location } from '../types/Location';
 import TextPageHeading from '../components/atoms/TextPageHeading';
 import ModalLocationDetails from '../components/organisms/ModalLocationDetails';
 import { handleLang } from '../utils/handleLang';
+import BoxVerticalGap from '../components/atoms/BoxVerticalGap';
+import ContactHours from '../components/molecules/ContactHours';
 
 const LocationsPage = () => {
   const { t } = useTranslation();
@@ -50,7 +52,7 @@ const LocationsPage = () => {
   };
 
   return (
-    <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
+    <BoxVerticalGap style={{ gap: 'var(--spacing-half)', padding: 'var(--spacing-2)' }}>
       <TextPageHeading>{t('navbar.locations')}</TextPageHeading>
       <div className={'boxContentContainer'}>
         {locationsLang.length > 0 &&
@@ -86,7 +88,8 @@ const LocationsPage = () => {
         )}
         <ModalLocation data={location} open={openEdit} setOpen={setOpenEdit} />
       </div>
-    </div>
+      <ContactHours />
+    </BoxVerticalGap>
   );
 };
 
