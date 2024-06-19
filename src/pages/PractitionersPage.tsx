@@ -6,6 +6,7 @@ import PractitionerData from '../components/organisms/PractitionerData';
 import ModalPractDetails from '../components/organisms/ModalPractDetails';
 import TextPageHeading from '../components/atoms/TextPageHeading';
 import { handleLang } from '../utils/handleLang';
+import BoxVerticalGap from '../components/atoms/BoxVerticalGap';
 
 const PractitionersPage = () => {
   const { t } = useTranslation();
@@ -39,7 +40,7 @@ const PractitionersPage = () => {
   };
 
   return (
-    <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
+    <BoxVerticalGap style={{ padding: 'var(--spacing-2)' }}>
       <TextPageHeading>{t('practitioners.pract')}</TextPageHeading>
       <div className={'boxContentContainer'}>
         {practitionersLang.length > 0 &&
@@ -55,7 +56,7 @@ const PractitionersPage = () => {
           ))}
       </div>
       {details && <ModalPractDetails open={open} data={details} setOpen={setOpen} />}
-    </div>
+    </BoxVerticalGap>
   );
 };
 
