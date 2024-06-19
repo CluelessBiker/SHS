@@ -5,6 +5,11 @@ import { handleError } from '../utils/handleError';
 import FormInput from '../components/molecules/FormInput';
 import { axiosReq } from '../api/axiosDefaults';
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/atoms/Button';
+import ContactHours from '../components/molecules/ContactHours';
+import axios, { AxiosError } from 'axios';
+import TextSection from '../components/atoms/TextSection';
+import BoxContent from '../components/atoms/BoxContent';
 
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -28,64 +33,68 @@ const ContactPage = () => {
     }));
   };
 
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
-
+  const handleSubmit = async () => {
     try {
       await axiosReq.post('/contact/', contact);
       navigate('/locations');
-    } catch (error: any) {
-      console.log(error);
-      if (error.response?.status !== 401) {
-        setErrors(error.response?.data);
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        const axiosError = error as AxiosError;
+        console.log(axiosError);
+        if (axiosError.response?.status !== 401) {
+          setErrors(axiosError.response?.data);
+        }
+      } else {
+        console.log(error);
       }
     }
   };
 
   return (
     <div className={'boxContentContainer'}>
-      <div className={'boxVerticalGap boxContent'}>
-        <h3>{t('contact.contactUs')}</h3>
+      <BoxContent variant={'verticalGap'}>
+        <TextSection text={t('contact.contactUs')} heading />
         <FormInput
           required
-          label={'name'}
           value={contact.name}
+          label={t('contact.form.name')}
           error={handleError('name', errors)}
           onChange={value => onChange('name', value)}
         />
         <FormInput
           required
           type={'email'}
-          label={'email'}
           value={contact.email}
+          label={t('contact.form.eml')}
           error={handleError('email', errors)}
           onChange={value => onChange('email', value)}
         />
         <FormInput
           required
           type={'tel'}
-          label={'phone'}
           value={contact.phone}
+          label={t('contact.form.phn')}
           error={handleError('phone', errors)}
           onChange={value => onChange('phone', value)}
         />
         <FormInput
           required
-          label={'subject'}
           value={contact.subject}
+          label={t('contact.form.subj')}
           error={handleError('subject', errors)}
           onChange={value => onChange('subject', value)}
         />
         <FormInput
           required
-          label={'message'}
           value={contact.message}
+          label={t('contact.form.msg')}
           error={handleError('message', errors)}
           onChange={value => onChange('message', value)}
         />
 
-        <button onClick={handleSubmit}>{t('buttons.submit')}</button>
-      </div>
+        <Button onClick={handleSubmit} text={t('buttons.submit')} />
+      </BoxContent>
+      <ContactHours />
     </div>
   );
 };
