@@ -10,6 +10,9 @@ const StyledButton = styled.a`
   font-weight: var(--typography-weight-bold);
   padding: var(--spacing-1) var(--spacing-2);
   background-color: var(--mui-palette-primary-green);
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
 const BtnBookNow = () => {
