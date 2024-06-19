@@ -5,6 +5,7 @@ import { axiosReq } from '../api/axiosDefaults';
 import ServiceData from '../components/ServiceData';
 import TextPageHeading from '../components/atoms/TextPageHeading';
 import { handleLang } from '../utils/handleLang';
+import BoxVerticalGap from '../components/atoms/BoxVerticalGap';
 
 const ServicesPage = () => {
   const { t } = useTranslation();
@@ -28,13 +29,13 @@ const ServicesPage = () => {
   }, []);
 
   return (
-    <div className={'boxVerticalGap'} style={{ padding: 'var(--spacing-2)' }}>
+    <BoxVerticalGap style={{ padding: 'var(--spacing-2)' }}>
       <TextPageHeading>{t('services.offered')}</TextPageHeading>
       <div className={'boxContentContainer'}>
         {servicesLang &&
           servicesLang.map((data: Service) => <ServiceData data={data} key={data.id} />)}
       </div>
-    </div>
+    </BoxVerticalGap>
   );
 };
 
