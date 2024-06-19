@@ -1,0 +1,25 @@
+{
+  "results": [
+    {
+      "title": "Acupuncture",
+      "blurb": "Re-balancing Your Body",
+      "description": "Acupuncture forms an integral part of our approach to treating the whole body, not just a complaint in isolation. This service is fundamental to ensuring our patients’ long-term health and wellness. Our highly trained staff is here to assist you for all your required needs.",
+      "price": null,
+      "duration": null
+    },
+    {
+      "title": "Chiropractic",
+      "blurb": "Re-aligning Your Body",
+      "description": "Chiropractic focuses on the spine and other joints of the body, with their connection to the nervous system. The word “chiropractic” means “to be done by hand.” As primary health care providers, chiropractors use specific adjustments to restore joint function and support the nervous system. They help patients maintain optimal health while avoiding unnecessary drugs or surgery. Please click on any of the issues underneath that we can help you with.",
+      "price": null,
+      "duration": null
+    },
+    {
+      "title": "Clinical Nutritional Counselling",
+      "blurb": "Improve your general wellbeing",
+      "description": "We are proud to offer one of the most important units to everyone's health. Our main clinician is one of Greece's top yet first ever, fully licensed Clinical Nutritionist in the country.  With over several decades of experience as well as multiple published artifacts and resources, we offer a well-balanced approach to the body as a whole.  Through our multidisciplinary approach we know not only encompass how your body should move and act but what you should put in it as well.",
+      "price": null,
+      "duration": null
+    }
+  ]
+}
