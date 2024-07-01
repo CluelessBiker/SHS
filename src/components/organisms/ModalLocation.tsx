@@ -93,7 +93,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
     formData.append('postcode', location.postcode as string);
     formData.append('gRating', location.gRating as string);
     formData.append('gMap', location.gMap as string);
-    formData.append('language', location.language as string);
+    formData.append('language', location.language?.code as string);
     formData.append('area', location.area as string);
     formData.append('description', location.description as string);
     if (imageInput.current?.files && imageInput.current.files[0]) {
@@ -130,7 +130,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
           data={lang}
           label={'language'}
           error={handleError('language', errors)}
-          selected={location.language as string}
+          selected={location.language?.code as string}
           onChange={event => onChange('language', event)}
         />
       </div>
