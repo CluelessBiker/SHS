@@ -34,7 +34,7 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
     gRating: '',
     gMap: '',
     image: '',
-    language: 2,
+    // language: 2,
     area: '',
     description: '',
   });
