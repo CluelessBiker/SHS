@@ -22,7 +22,7 @@ const BtnBookNow = () => {
       target={'_blank'}
       rel={'noreferrer'}
       aria-label={'book appointment'}
-      href={''}
+      href={'https://systemhealthspine.janeapp.com/'}
     >
       {t('buttons.bookNow')}
     </StyledButton>
