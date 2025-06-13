@@ -1,55 +1,57 @@
-import { useEffect, useState } from 'react';
-import { axiosReq, axiosRes } from '../api/axiosDefaults';
+import { useState } from 'react';
 import LocationData from '../components/organisms/LocationData';
-import ModalConfirmDelete from '../components/organisms/ModalConfirmDelete';
 import { useTranslation } from 'react-i18next';
-import ModalLocation from '../components/organisms/ModalLocation';
 import { Location } from '../types/Location';
 import TextPageHeading from '../components/atoms/TextPageHeading';
 import ModalLocationDetails from '../components/organisms/ModalLocationDetails';
 import { handleLang } from '../utils/handleLang';
 import BoxVerticalGap from '../components/atoms/BoxVerticalGap';
 import ContactHours from '../components/molecules/ContactHours';
+import { LocationsResponse } from '../constants/locations';
+// import { axiosReq, axiosRes } from '../api/axiosDefaults';
+// import ModalConfirmDelete from '../components/organisms/ModalConfirmDelete';
+// import ModalLocation from '../components/organisms/ModalLocation';
 
 const LocationsPage = () => {
   const { t } = useTranslation();
   const lang: 'en' | 'el' | 'fr' =
     (localStorage.getItem('i18nextLng') as 'en' | 'el' | 'fr') || 'en';
 
-  const [locations, setLocations] = useState<Location[]>([]);
   const [location, setLocation] = useState<Location>();
   const [openDetails, setOpenDetails] = useState<boolean>(false);
-  const [openEdit, setOpenEdit] = useState<boolean>(false);
-  const [openDelete, setOpenDelete] = useState<boolean>(false);
+  // const [locations, setLocations] = useState<Location[]>([]);
+  // const [openEdit, setOpenEdit] = useState<boolean>(false);
+  // const [openDelete, setOpenDelete] = useState<boolean>(false);
 
+  const locations = LocationsResponse.results;
   const locationsLang = handleLang<Location>(locations, lang);
 
-  useEffect(() => {
-    const fetchLocations = async () => {
-      try {
-        const { data } = await axiosReq.get(`/locations/`);
-        setLocations(data.results);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchLocations = async () => {
+  //     try {
+  //       const { data } = await axiosReq.get(`/locations/`);
+  //       setLocations(data.results);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
 
-    fetchLocations();
-  }, []);
+  //   fetchLocations();
+  // }, []);
 
-  const handleEdit = (data: Location) => {
-    setLocation(data);
-    setOpenEdit(true);
-  };
+  // const handleEdit = (data: Location) => {
+  //   setLocation(data);
+  //   setOpenEdit(true);
+  // };
 
-  const handleDelete = async () => {
-    try {
-      await axiosRes.delete(`/locations/${location && location.id ? location.id : ''}/`);
-    } catch (err) {
-      console.log(err);
-    }
-    setOpenDelete(false);
-  };
+  // const handleDelete = async () => {
+  //   try {
+  //     await axiosRes.delete(`/locations/${location && location.id ? location.id : ''}/`);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  //   setOpenDelete(false);
+  // };
 
   return (
     <BoxVerticalGap style={{ gap: 'var(--spacing-half)', padding: 'var(--spacing-2)' }}>
@@ -60,11 +62,11 @@ const LocationsPage = () => {
             <LocationData
               data={data}
               key={data.id}
-              handleEdit={() => handleEdit(data)}
-              handleDelete={() => {
-                setLocation(data);
-                setOpenDelete(true);
-              }}
+              // handleEdit={() => handleEdit(data)}
+              // handleDelete={() => {
+              //   setLocation(data);
+              //   setOpenDelete(true);
+              // }}
               handleViewDetails={() => {
                 setLocation(data);
                 setOpenDetails(true);
@@ -72,12 +74,12 @@ const LocationsPage = () => {
             />
           ))}
 
-        <ModalConfirmDelete
+        {/* <ModalConfirmDelete
           open={openDelete}
           setOpen={setOpenDelete}
           handleDelete={handleDelete}
           text={t('generic.location')}
-        />
+        /> */}
 
         {location && (
           <ModalLocationDetails
@@ -86,7 +88,7 @@ const LocationsPage = () => {
             setOpen={setOpenDetails}
           />
         )}
-        <ModalLocation data={location} open={openEdit} setOpen={setOpenEdit} />
+        {/* <ModalLocation data={location} open={openEdit} setOpen={setOpenEdit} /> */}
       </div>
       <ContactHours />
     </BoxVerticalGap>

@@ -12,8 +12,8 @@ import Button from '../atoms/Button';
 
 type Props = {
   data: Location;
-  handleEdit: () => void;
-  handleDelete: () => void;
+  handleEdit?: () => void;
+  handleDelete?: () => void;
   handleViewDetails: () => void;
 };
 
@@ -39,16 +39,20 @@ const LocationData: FC<Props> = ({
 
       {currentUser && (
         <div>
-          <Button
-            variant={'icon'}
-            onClick={handleEdit}
-            icon={<IconEdit height={'14px'} />}
-          />
-          <Button
-            variant={'icon'}
-            onClick={handleDelete}
-            icon={<IconDelete height={'14px'} />}
-          />
+          {handleEdit && (
+            <Button
+              variant={'icon'}
+              onClick={handleEdit}
+              icon={<IconEdit height={'14px'} />}
+            />
+          )}
+          {handleDelete && (
+            <Button
+              variant={'icon'}
+              onClick={handleDelete}
+              icon={<IconDelete height={'14px'} />}
+            />
+          )}
         </div>
       )}
     </BoxCard>

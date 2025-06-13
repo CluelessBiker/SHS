@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
-import { axiosReq } from '../api/axiosDefaults';
+import { useState } from 'react';
 import { Practitioner } from '../types/Practitioner';
 import PractitionerData from '../components/organisms/PractitionerData';
 import ModalPractDetails from '../components/organisms/ModalPractDetails';
 import TextPageHeading from '../components/atoms/TextPageHeading';
 import { handleLang } from '../utils/handleLang';
 import BoxVerticalGap from '../components/atoms/BoxVerticalGap';
+import { PractitionersResponse } from '../constants/practitioners';
 
 const PractitionersPage = () => {
   const { t } = useTranslation();
@@ -14,23 +14,24 @@ const PractitionersPage = () => {
     (localStorage.getItem('i18nextLng') as 'en' | 'el' | 'fr') || 'en';
 
   const [details, setDetails] = useState<Practitioner>();
-  const [practitioners, setPractitioners] = useState<Practitioner[]>([]);
+  // const [practitioners, setPractitioners] = useState<Practitioner[]>([]);
   const [open, setOpen] = useState<boolean>(false);
 
-  const practitionersLang = handleLang<Practitioner>(practitioners, lang);
+  const practitioners = PractitionersResponse.results;
+  const practitionersLang = handleLang(practitioners, lang);
 
-  useEffect(() => {
-    const fetchPractitioners = async () => {
-      try {
-        const { data } = await axiosReq.get('/practitioners/');
-        setPractitioners(data.results);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPractitioners = async () => {
+  //     try {
+  //       const { data } = await axiosReq.get('/practitioners/');
+  //       setPractitioners(data.results);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
 
-    fetchPractitioners();
-  }, []);
+  //   fetchPractitioners();
+  // }, []);
 
   /**
    * Fix sort order to display owner (primary) first
