@@ -1,5 +1,7 @@
 export type Language = {
-  id: string;
+  id: number;
   code: string;
   name: string;
+  createdAt: string;
+  updatedAt: string;
 };

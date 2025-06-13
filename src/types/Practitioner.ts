@@ -18,4 +18,5 @@ export type Practitioner = {
   personalExperience: string;
   language: Language;
   primary: boolean;
+  active?: boolean;
 };

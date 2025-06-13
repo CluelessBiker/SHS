@@ -1,7 +1,7 @@
 import { Language } from './Language';
 
 export type Location = {
-  id: string;
+  id: number;
   title: string;
   phone: string;
   email: string;
@@ -9,10 +9,11 @@ export type Location = {
   street: string;
   city: string;
   postcode: string;
-  gRating: string;
+  gRating?: string;
   gMap: string;
   image: string;
   area: string;
   description: string;
   language: Language;
+  active?: boolean;
 };
