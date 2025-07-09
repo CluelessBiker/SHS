@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import IconGear from '../assets/svgs/IconGear';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
+// import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
 import axios from 'axios';
 import ModalLocation from './organisms/ModalLocation';
 import IconSHSLogo from '../assets/svgs/IconSHSLogo';
@@ -26,43 +26,43 @@ const pages = [
   { text: 'navbar.practitioners', link: 'practitioners' },
   { text: 'navbar.contact', link: 'contact' },
 ];
-const settings = [{ text: 'navbar.logOut', link: 'logout' }];
+// const settings = [{ text: 'navbar.logOut', link: 'logout' }];
 
 function Navbar() {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const currentUser = useCurrentUser();
-  const setCurrentUser = useSetCurrentUser();
+  // const currentUser = useCurrentUser();
+  // const setCurrentUser = useSetCurrentUser();
 
   const [locationOpen, setLocationOpen] = useState<boolean>(false);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  // const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
 
   const handlePageNavigation = (page: string) => {
     navigate(`/${page}`);
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  // const handleCloseUserMenu = () => {
+  //   setAnchorElUser(null);
+  // };
 
-  const handleLogout = async () => {
-    try {
-      await axios.post('dj-rest-auth/logout/');
-      setCurrentUser(null);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleLogout = async () => {
+  //   try {
+  //     await axios.post('dj-rest-auth/logout/');
+  //     setCurrentUser(null);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <AppBar
@@ -139,7 +139,7 @@ function Navbar() {
           <BtnBookNow />
         </Box>
 
-        {currentUser && (
+        {/* {currentUser && (
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -183,7 +183,7 @@ function Navbar() {
               </MenuItem>
             </Menu>
           </Box>
-        )}
+        )} */}
       </Toolbar>
       <ModalLocation open={locationOpen} setOpen={setLocationOpen} />
     </AppBar>
