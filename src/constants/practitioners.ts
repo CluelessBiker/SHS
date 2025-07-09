@@ -32,7 +32,7 @@ const Georgette: User = {
 export const Practitioners = {
   DINOS: {
     EN: {
-      id: 1,
+      id: '1',
       active: Dinos.active,
       createdAt: '2024-04-19T08:59:34.201028Z',
       updatedAt: '2024-04-19T08:59:34.201045Z',
@@ -51,7 +51,7 @@ export const Practitioners = {
       language: Languages.EN,
     },
     EL: {
-      id: 15,
+      id: '15',
       active: Dinos.active,
       createdAt: '2024-11-28T07:45:58.234324Z',
       updatedAt: '2024-11-28T07:45:58.234340Z',
@@ -70,7 +70,7 @@ export const Practitioners = {
       language: Languages.EL,
     },
     FR: {
-      id: 14,
+      id: '14',
       active: Dinos.active,
       createdAt: '2024-11-28T07:44:10.344368Z',
       updatedAt: '2024-11-28T07:44:10.344387Z',
@@ -91,7 +91,7 @@ export const Practitioners = {
   },
   BENJAMIN: {
     EN: {
-      id: 2,
+      id: '2',
       active: Benjamin.active,
       createdAt: '2024-04-19T09:01:16.669734Z',
       updatedAt: '2024-04-25T08:40:03.787430Z',
@@ -110,7 +110,7 @@ export const Practitioners = {
       language: Languages.EN,
     },
     EL: {
-      id: 9,
+      id: '9',
       active: Benjamin.active,
       createdAt: '2024-11-28T07:34:43.255928Z',
       updatedAt: '2024-11-28T07:34:43.255946Z',
@@ -129,7 +129,7 @@ export const Practitioners = {
       language: Languages.EL,
     },
     FR: {
-      id: 8,
+      id: '8',
       active: Benjamin.active,
       createdAt: '2024-11-28T07:32:55.736541Z',
       updatedAt: '2024-11-28T07:32:55.736558Z',
@@ -150,7 +150,7 @@ export const Practitioners = {
   },
   GEORGETTE: {
     EN: {
-      id: 3,
+      id: '3',
       active: Georgette.active,
       createdAt: '2024-04-19T09:02:47.024806Z',
       updatedAt: '2024-04-19T09:02:47.024841Z',
@@ -169,7 +169,7 @@ export const Practitioners = {
       language: Languages.EN,
     },
     EL: {
-      id: 6,
+      id: '6',
       active: Georgette.active,
       createdAt: '2024-11-28T07:28:47.108689Z',
       updatedAt: '2024-11-28T07:28:47.108708Z',

@@ -1,8 +1,6 @@
-import { Location } from '../types/Location';
-
 export type Hour = {
-  id: number;
-  location: number;
+  id: string;
+  location: string;
   createdAt: string;
   updatedAt: string;
   day: string;

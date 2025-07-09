@@ -27,7 +27,10 @@ const ServiceData: FC<Props> = ({ data }) => {
       </div>
       <div className={'boxVerticalGap'}>
         {data.duration && (
-          <TextKeyValue keyLeft={t('generic.duration')} value={data.duration} />
+          <TextKeyValue
+            keyLeft={t('generic.duration')}
+            value={data.duration.toString()}
+          />
         )}
         {data.price && (
           <TextKeyValue keyLeft={t('generic.price')} value={`€${data.price}`} />

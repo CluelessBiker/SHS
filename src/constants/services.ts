@@ -27,7 +27,7 @@ const kinesiology: Data = {
 export const Services = {
   ACUPUNCTURE: {
     EN: {
-      id: 2,
+      id: '2',
       locations: [Locations.ATHENS.EN, Locations.TINOS.EN],
       createdAt: '2024-04-19T08:52:09.466334Z',
       updatedAt: '2024-04-25T08:39:02.513315Z',
@@ -42,7 +42,7 @@ export const Services = {
       language: Languages.EN,
     },
     EL: {
-      id: 7,
+      id: '7',
       locations: [Locations.ATHENS.EL, Locations.TINOS.EL],
       createdAt: '2024-11-18T09:17:06.854818Z',
       updatedAt: '2024-11-18T09:17:06.854843Z',
@@ -57,7 +57,7 @@ export const Services = {
       language: Languages.EL,
     },
     FR: {
-      id: 12,
+      id: '12',
       locations: [Locations.ATHENS.FR, Locations.TINOS.FR],
       createdAt: '2024-11-18T09:24:06.611385Z',
       updatedAt: '2024-11-18T09:24:06.611411Z',
@@ -74,7 +74,7 @@ export const Services = {
   },
   CHIROPRACTIC: {
     EN: {
-      id: 1,
+      id: '1',
       locations: [Locations.ATHENS.EN, Locations.TINOS.EN],
       createdAt: '2024-04-19T08:51:12.768473Z',
       updatedAt: '2024-04-25T08:39:17.727234Z',
@@ -89,7 +89,7 @@ export const Services = {
       language: Languages.EN,
     },
     EL: {
-      id: 8,
+      id: '8',
       locations: [Locations.ATHENS.EL, Locations.TINOS.EL],
       createdAt: '2024-11-18T09:18:12.896440Z',
       updatedAt: '2024-11-18T09:18:12.896464Z',
@@ -104,7 +104,7 @@ export const Services = {
       language: Languages.EL,
     },
     FR: {
-      id: 13,
+      id: '13',
       locations: [Locations.ATHENS.FR, Locations.TINOS.FR],
       createdAt: '2024-11-18T09:25:00.492398Z',
       updatedAt: '2024-11-18T09:25:00.492416Z',
@@ -121,7 +121,7 @@ export const Services = {
   },
   NUTRITION: {
     EN: {
-      id: 3,
+      id: '3',
       locations: [Locations.ATHENS.EN],
       createdAt: '2024-04-19T08:54:48.408434Z',
       updatedAt: '2024-04-19T08:54:48.408451Z',
@@ -136,7 +136,7 @@ export const Services = {
       language: Languages.EN,
     },
     EL: {
-      id: 9,
+      id: '9',
       locations: [Locations.ATHENS.EL, Locations.TINOS.EL],
       createdAt: '2024-11-18T09:20:01.324023Z',
       updatedAt: '2024-11-18T09:20:01.324040Z',
@@ -151,7 +151,7 @@ export const Services = {
       language: Languages.EL,
     },
     FR: {
-      id: 14,
+      id: '14',
       locations: [Locations.ATHENS.FR, Locations.TINOS.FR],
       createdAt: '2024-11-18T09:26:07.687770Z',
       updatedAt: '2024-11-18T09:26:07.687812Z',
@@ -168,7 +168,7 @@ export const Services = {
   },
   KINESIOLOGY: {
     EN: {
-      id: 6,
+      id: '6',
       locations: [Locations.ATHENS.EN, Locations.TINOS.EN],
       createdAt: '2024-11-14T10:55:47.467211Z',
       updatedAt: '2024-11-14T10:55:47.467230Z',
@@ -183,7 +183,7 @@ export const Services = {
       language: Languages.EN,
     },
     EL: {
-      id: 10,
+      id: '10',
       locations: [Locations.ATHENS.EL, Locations.TINOS.EL],
       createdAt: '2024-11-18T09:22:24.183462Z',
       updatedAt: '2024-11-18T09:22:24.183485Z',
@@ -198,7 +198,7 @@ export const Services = {
       language: Languages.EL,
     },
     FR: {
-      id: 11,
+      id: '11',
       locations: [Locations.ATHENS.FR, Locations.TINOS.FR],
       createdAt: '2024-11-18T09:23:19.477906Z',
       updatedAt: '2024-11-18T09:23:19.477923Z',

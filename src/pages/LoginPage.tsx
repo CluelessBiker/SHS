@@ -1,15 +1,14 @@
-import { useState, useContext } from 'react';
-import axios, { AxiosResponse } from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { SetCurrentUserContext } from '../context/CurrentUserContext';
+import { useState } from 'react';
+// import axios, { AxiosResponse } from 'axios';
+// import { useNavigate } from 'react-router-dom';
+// import { SetCurrentUserContext } from '../context/CurrentUserContext';
 import FormInput from '../components/molecules/FormInput';
-import { User } from '../types/User';
+// import { User } from '../types/User';
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const setCurrentUser = useContext(SetCurrentUserContext);
+  // const navigate = useNavigate();
+  // const setCurrentUser = useContext(SetCurrentUserContext);
 
-  const [errors, setErrors] = useState<any>({});
   const [login, setLogin] = useState<{ username: string; password: string }>({
     username: '',
     password: '',
@@ -26,28 +25,28 @@ const LoginPage = () => {
     }));
   };
 
-  const handleLogin = async (event: any) => {
-    event.preventDefault();
-    try {
-      const response: AxiosResponse<User> = await axios.post(
-        '/dj-rest-auth/login/',
-        login,
-      );
-      const data: User = response.data;
-      setCurrentUser(data.user);
-      navigate('/');
-    } catch (error: any) {
-      if (error.response?.status !== 401) {
-        setErrors(error.response?.data);
-      }
-    }
-  };
+  // const handleLogin = async (event: any) => {
+  //   event.preventDefault();
+  //   try {
+  //     const response: AxiosResponse<User> = await axios.post(
+  //       '/dj-rest-auth/login/',
+  //       login,
+  //     );
+  //     const data: User = response.data;
+  //     setCurrentUser(data.user);
+  //     navigate('/');
+  //   } catch (error: any) {
+  //     if (error.response?.status !== 401) {
+  //       setErrors(error.response?.data);
+  //     }
+  //   }
+  // };
 
-  const handleError = (data: any) => {
-    if (!errors) return '';
-    const found = errors[data];
-    return found ? found[0] : undefined;
-  };
+  // const handleError = (data: any) => {
+  //   if (!errors) return '';
+  //   const found = errors[data];
+  //   return found ? found[0] : undefined;
+  // };
 
   return (
     <div>
@@ -55,19 +54,17 @@ const LoginPage = () => {
         <FormInput
           label={'username'}
           value={login.username}
-          error={handleError('postcode')}
           onChange={value => onChange('username', value)}
         />
         <FormInput
           type={'password'}
           label={'password'}
           value={login.password}
-          error={handleError('postcode')}
           onChange={value => onChange('password', value)}
         />
       </div>
 
-      <button onClick={handleLogin}>login</button>
+      {/* <button onClick={handleLogin}>login</button> */}
 
       {/*{handleError('non_field_errors') !== '' ||*/}
       {/*  (!handleError('non_field_errors') && <p>{handleError('non_field_errors')}</p>)}*/}

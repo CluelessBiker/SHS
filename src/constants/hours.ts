@@ -3,7 +3,7 @@ import { Locations } from './locations';
 
 const Hours = {
   MON: {
-    id: 8,
+    id: '8',
     location: Locations.ATHENS.EN.id,
     createdAt: '2024-04-19T08:49:15.795753Z',
     updatedAt: '2024-04-19T08:49:15.795768Z',
@@ -13,7 +13,7 @@ const Hours = {
     info: null,
   },
   TUE: {
-    id: 9,
+    id: '9',
     location: Locations.ATHENS.EN.id,
     createdAt: '2024-04-19T08:49:24.422570Z',
     updatedAt: '2024-04-19T08:49:24.422588Z',
@@ -23,7 +23,7 @@ const Hours = {
     info: null,
   },
   WED: {
-    id: 10,
+    id: '10',
     location: Locations.ATHENS.EN.id,
     createdAt: '2024-04-19T08:49:33.898687Z',
     updatedAt: '2024-04-19T08:49:33.898708Z',
@@ -33,7 +33,7 @@ const Hours = {
     info: null,
   },
   THU: {
-    id: 11,
+    id: '11',
     location: Locations.ATHENS.EN.id,
     createdAt: '2024-04-19T08:49:44.157127Z',
     updatedAt: '2024-04-19T08:49:44.157143Z',
@@ -43,7 +43,7 @@ const Hours = {
     info: null,
   },
   FRI: {
-    id: 12,
+    id: '12',
     location: Locations.ATHENS.EN.id,
     createdAt: '2024-04-19T08:49:52.611498Z',
     updatedAt: '2024-04-19T08:49:52.611513Z',
@@ -53,7 +53,7 @@ const Hours = {
     info: null,
   },
   SAT: {
-    id: 13,
+    id: '13',
     location: Locations.ATHENS.EN.id,
     createdAt: '2024-04-19T08:50:05.151090Z',
     updatedAt: '2024-04-19T08:50:05.151107Z',
@@ -63,7 +63,7 @@ const Hours = {
     info: null,
   },
   SUN: {
-    id: 14,
+    id: '14',
     location: Locations.ATHENS.EN.id,
     createdAt: '2024-06-19T07:19:26.081472Z',
     updatedAt: '2024-06-19T07:19:26.081487Z',

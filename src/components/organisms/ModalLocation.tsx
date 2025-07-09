@@ -122,7 +122,6 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         <FormInput
           label={'title'}
           value={location.title as string}
-          error={handleError('title', errors)}
           onChange={value => onChange('title', value)}
         />
 
@@ -140,7 +139,6 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
           type={'tel'}
           label={'phone'}
           value={location.phone as string}
-          error={handleError('phone', errors)}
           onChange={value => onChange('phone', value)}
         />
 
@@ -148,7 +146,6 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
           type={'email'}
           label={'email'}
           value={location.email as string}
-          error={handleError('email', errors)}
           onChange={value => onChange('email', value)}
         />
       </div>
@@ -157,14 +154,12 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         <FormInput
           label={'street number'}
           value={location.streetNum as string}
-          error={handleError('streetNum', errors)}
           onChange={value => onChange('streetNum', value)}
         />
 
         <FormInput
           label={'street name'}
           value={location.street as string}
-          error={handleError('street', errors)}
           onChange={value => onChange('street', value)}
         />
       </div>
@@ -173,14 +168,12 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         <FormInput
           label={'area'}
           value={location.area as string}
-          error={handleError('area', errors)}
           onChange={value => onChange('area', value)}
         />
 
         <FormInput
           label={'city'}
           value={location.city as string}
-          error={handleError('city', errors)}
           onChange={value => onChange('city', value)}
         />
 
@@ -188,7 +181,6 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
           type={'number'}
           label={'post code'}
           value={location.postcode as string}
-          error={handleError('postcode', errors)}
           onChange={value => onChange('postcode', value)}
         />
       </div>
@@ -196,7 +188,6 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
       <FormInput
         label={'description'}
         value={location.description as string}
-        error={handleError('description', errors)}
         onChange={value => onChange('description', value)}
       />
 
@@ -204,7 +195,6 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         type={'url'}
         value={location.gRating as string}
         label={'google ratings url'}
-        error={handleError('gRating', errors)}
         onChange={value => onChange('gRating', value)}
       />
 
@@ -212,7 +202,6 @@ const ModalLocation: FC<Props> = ({ data, open, setOpen }) => {
         type={'url'}
         label={'google map url'}
         value={location.gMap as string}
-        error={handleError('gMap', errors)}
         onChange={value => onChange('gMap', value)}
       />
 

@@ -16,7 +16,7 @@ const tinos = {
 export const Locations = {
   ATHENS: {
     EN: {
-      id: 1,
+      id: '1',
       createdAt: '2024-04-19T08:04:10.630348Z',
       updatedAt: '2024-04-19T08:04:10.630365Z',
       title: 'Athens',
@@ -35,7 +35,7 @@ export const Locations = {
         'We are located between Katexaki & Ethniki Amina stations, just north of Messogeion Ave.',
     },
     EL: {
-      id: 5,
+      id: '5',
       createdAt: '2024-11-14T13:49:56.345325Z',
       updatedAt: '2024-11-14T13:49:56.345343Z',
       title: 'Αθήνα',
@@ -54,7 +54,7 @@ export const Locations = {
         'Βρισκόμαστε ανάμεσα στους σταθμούς Κατεχάκη και Εθνική Άμυνα, λίγο βόρεια της λεωφόρου Μεσογείων.',
     },
     FR: {
-      id: 6,
+      id: '6',
       createdAt: '2024-11-14T13:52:02.349505Z',
       updatedAt: '2024-11-14T13:52:02.349524Z',
       title: 'Athènes',
@@ -75,7 +75,7 @@ export const Locations = {
   },
   TINOS: {
     EN: {
-      id: 2,
+      id: '2',
       createdAt: '2024-04-19T08:05:29.410806Z',
       updatedAt: '2024-06-01T07:19:31.615505Z',
       title: 'Tinos',
@@ -93,7 +93,7 @@ export const Locations = {
       description: '',
     },
     EL: {
-      id: 3,
+      id: '3',
       createdAt: '2024-11-14T12:57:22.915789Z',
       updatedAt: '2024-11-14T12:57:22.915807Z',
       title: 'Τήνος',
@@ -111,7 +111,7 @@ export const Locations = {
       description: '',
     },
     FR: {
-      id: 4,
+      id: '4',
       createdAt: '2024-11-14T12:58:36.755869Z',
       updatedAt: '2024-11-14T12:58:36.755889Z',
       title: 'Tinos',

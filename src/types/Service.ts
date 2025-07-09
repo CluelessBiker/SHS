@@ -2,7 +2,7 @@ import { Location } from './Location';
 import { Language } from './Language';
 
 export type Service = {
-  id: number;
+  id: string;
   locations: Location[];
   createdAt: string;
   updatedAt: string;

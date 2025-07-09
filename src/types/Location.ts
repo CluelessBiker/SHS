@@ -1,7 +1,7 @@
 import { Language } from './Language';
 
 export type Location = {
-  id: number;
+  id: string;
   title: string;
   phone: string;
   email: string;
