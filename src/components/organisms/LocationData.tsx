@@ -1,30 +1,30 @@
 import { FC } from 'react';
 import { Location } from '../../types/Location';
-import { useCurrentUser } from '../../context/CurrentUserContext';
+// import { useCurrentUser } from '../../context/CurrentUserContext';
 import { useTranslation } from 'react-i18next';
 import ImageCont from '../atoms/ImageCont';
 import TextContentTitle from '../atoms/TextContentTitle';
-import IconEdit from '../../assets/svgs/IconEdit';
-import IconDelete from '../../assets/svgs/IconDelete';
+// import IconEdit from '../../assets/svgs/IconEdit';
+// import IconDelete from '../../assets/svgs/IconDelete';
 import TextKeyValue from '../atoms/TextKeyValue';
 import BoxCard from '../atoms/BoxCard';
-import Button from '../atoms/Button';
+// import Button from '../atoms/Button';
 
 type Props = {
   data: Location;
-  handleEdit?: () => void;
-  handleDelete?: () => void;
+  // handleEdit?: () => void;
+  // handleDelete?: () => void;
   handleViewDetails: () => void;
 };
 
 const LocationData: FC<Props> = ({
   data,
-  handleEdit,
-  handleDelete,
+  // handleEdit,
+  // handleDelete,
   handleViewDetails,
 }) => {
   const { t } = useTranslation();
-  const currentUser = useCurrentUser();
+  // const currentUser = useCurrentUser();
 
   return (
     <BoxCard>
@@ -37,7 +37,7 @@ const LocationData: FC<Props> = ({
       />
       <TextKeyValue keyLeft={t('contact.form.phn')} value={`+30 ${data.phone}`} />
 
-      {currentUser && (
+      {/* {currentUser && (
         <div>
           {handleEdit && (
             <Button
@@ -54,7 +54,7 @@ const LocationData: FC<Props> = ({
             />
           )}
         </div>
-      )}
+      )} */}
     </BoxCard>
   );
 };
