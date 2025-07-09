@@ -24,12 +24,13 @@ type Props = {
   text?: string;
   variant?: string;
   icon?: ReactNode;
-  onClick: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: () => void;
 };
 
-const Button: FC<Props> = ({ text, variant, onClick, icon }) => {
+const Button: FC<Props> = ({ type, text, variant, onClick, icon }) => {
   return (
-    <StyledButton className={variant} onClick={onClick}>
+    <StyledButton className={variant} onClick={onClick} type={type}>
       {text && text}
       {icon && icon}
     </StyledButton>
