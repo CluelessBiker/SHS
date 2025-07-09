@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import LocationsPage from './pages/LocationsPage';
 // import LoginPage from './pages/LoginPage';
@@ -9,8 +9,16 @@ import ServicesPage from './pages/ServicesPage';
 import PractitionersPage from './pages/PractitionersPage';
 import ContactPage from './pages/ContactPage';
 import Footer from './components/organisms/Footer';
+import { useEffect } from 'react';
+import { pageview } from './lib/gtag';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    pageview(location.pathname + location.search);
+  }, [location]);
+
   return (
     <div className={'bodyContainer'}>
       <Navbar />
