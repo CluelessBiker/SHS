@@ -35,7 +35,11 @@ const ContactPage = () => {
     <div className={'boxContentContainer'}>
       <BoxContent variant={'verticalGap'}>
         <TextSection text={t('contact.contactUs')} heading />
-        <form ref={form} onSubmit={sendEmail}>
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+        >
           <FormInput required name={'from_name'} label={t('contact.form.name')} />
           <FormInput
             required
