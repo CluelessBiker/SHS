@@ -1,41 +1,21 @@
-import { ChangeEvent, FC } from 'react';
+import { FC, InputHTMLAttributes, useId } from 'react';
 import InputContainer from '../atoms/InputContainer';
 import InputLabel from '../atoms/InputLabel';
-import InputError from '../atoms/InputError';
 import InputField from '../atoms/InputField';
 
 type Props = {
-  type?: string;
   label: string;
-  error?: string;
   required?: boolean;
-  value: string | number;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-};
+} & InputHTMLAttributes<HTMLInputElement>;
 
-const FormInput: FC<Props> = ({
-  type = 'text',
-  label,
-  value,
-  error,
-  onChange,
-  required = false,
-}) => {
+const FormInput: FC<Props> = ({ label, required = false, ...rest }) => {
+  const id = useId();
+
   return (
     <InputContainer>
-      <InputLabel
-        htmlFor={value as string}
-        label={`${label}${required ? ' *' : undefined}`}
-      />
-      <InputField
-        type={type}
-        value={value}
-        label={label}
-        required={required}
-        onChange={onChange}
-        aria-label={`${label} input field`}
-      />
-      {error && <InputError error={error} />}
+      <InputLabel htmlFor={id} label={`${label}${required && ' *'}`} />
+      <InputField id={id} label={label} required={required} {...rest} />
+      {/* {error && <InputError error={error} />} */}
     </InputContainer>
   );
 };
