@@ -1,98 +1,59 @@
 import { useTranslation } from 'react-i18next';
-import { ChangeEvent, useState } from 'react';
-import { Contact } from '../types/Contact';
-import { handleError } from '../utils/handleError';
+import { useRef } from 'react';
 import FormInput from '../components/molecules/FormInput';
-import { axiosReq } from '../api/axiosDefaults';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/atoms/Button';
 import ContactHours from '../components/molecules/ContactHours';
-import axios, { AxiosError } from 'axios';
 import TextSection from '../components/atoms/TextSection';
 import BoxContent from '../components/atoms/BoxContent';
+import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
+  const form = useRef<HTMLFormElement | null>(null);
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const [errors, setErrors] = useState<any>({});
-  const [contact, setContact] = useState<Omit<Contact, 'createdAt'>>({
-    name: '',
-    subject: '',
-    message: '',
-    email: '',
-    phone: '',
-    read: false,
-  });
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const onChange = (fieldName: string, event: ChangeEvent<HTMLInputElement>) => {
-    const value = event?.target.value;
-    setContact(oldValue => ({
-      ...oldValue,
-      [fieldName]: value,
-    }));
-  };
+    if (!form.current) return;
 
-  const handleSubmit = async () => {
-    try {
-      await axiosReq.post('/contact/', contact);
-      navigate('/locations');
-    } catch (error: unknown) {
-      if (axios.isAxiosError(error)) {
-        const axiosError = error as AxiosError;
-        console.log(axiosError);
-        if (axiosError.response?.status !== 401) {
-          setErrors(axiosError.response?.data);
-        }
-      } else {
-        console.log(error);
-      }
-    }
+    emailjs
+      .sendForm('service_eqc9ltd', 'template_tjczyzf', form.current, 'E1ixKlLbduurKoiHf')
+      .then(
+        result => {
+          console.log(result.text);
+        },
+        error => {
+          console.log(error.text);
+        },
+      );
+    navigate('/locations');
   };
 
   return (
     <div className={'boxContentContainer'}>
       <BoxContent variant={'verticalGap'}>
         <TextSection text={t('contact.contactUs')} heading />
-        <FormInput
-          required
-          value={contact.name}
-          label={t('contact.form.name')}
-          error={handleError('name', errors)}
-          onChange={value => onChange('name', value)}
-        />
-        <FormInput
-          required
-          type={'email'}
-          value={contact.email}
-          label={t('contact.form.eml')}
-          error={handleError('email', errors)}
-          onChange={value => onChange('email', value)}
-        />
-        <FormInput
-          required
-          type={'tel'}
-          value={contact.phone}
-          label={t('contact.form.phn')}
-          error={handleError('phone', errors)}
-          onChange={value => onChange('phone', value)}
-        />
-        <FormInput
-          required
-          value={contact.subject}
-          label={t('contact.form.subj')}
-          error={handleError('subject', errors)}
-          onChange={value => onChange('subject', value)}
-        />
-        <FormInput
-          required
-          value={contact.message}
-          label={t('contact.form.msg')}
-          error={handleError('message', errors)}
-          onChange={value => onChange('message', value)}
-        />
+        <form ref={form} onSubmit={sendEmail}>
+          <FormInput required name={'from_name'} label={t('contact.form.name')} />
+          <FormInput
+            required
+            type={'email'}
+            name={'from_email'}
+            label={t('contact.form.eml')}
+          />
+          <FormInput
+            required
+            type={'tel'}
+            name={'from_number'}
+            label={t('contact.form.phn')}
+          />
+          <FormInput required name={'from_subject'} label={t('contact.form.subj')} />
+          <FormInput required name={'from_message'} label={t('contact.form.msg')} />
 
-        <Button onClick={handleSubmit} text={t('buttons.submit')} />
+          <Button type={'submit'} text={t('buttons.submit')} />
+        </form>
       </BoxContent>
       <ContactHours />
     </div>
