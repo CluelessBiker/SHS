@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react';
+import { FC, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
@@ -11,30 +11,11 @@ const StyledInput = styled.input`
 `;
 
 type Props = {
-  type?: string;
   label: string;
-  required?: boolean;
-  value: string | number;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-};
+} & InputHTMLAttributes<HTMLInputElement>;
 
-const InputField: FC<Props> = ({
-  type = 'text',
-  label,
-  value,
-  onChange,
-  required = false,
-}) => {
-  return (
-    <StyledInput
-      type={type}
-      value={value}
-      required={required}
-      onChange={onChange}
-      id={value as string}
-      aria-label={`${label} input field`}
-    />
-  );
+const InputField: FC<Props> = ({ label, ...rest }) => {
+  return <StyledInput aria-label={`${label} input field`} {...rest} />;
 };
 
 export default InputField;
