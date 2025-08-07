@@ -9,3 +9,8 @@
 ## GoogleAnalytics:
 
 - [Admin](https://analytics.google.com/analytics/web/#/a101337865p0/admin) => Create => Property => Replace G-XXXXXXXX
+
+## HOSTING
+
+- [Adding a custom domain managed by a third-party DNS provider](https://docs.aws.amazon.com/amplify/latest/userguide/to-add-a-custom-domain-managed-by-a-third-party-dns-provider.html)
+- [Updating DNS records for a domain managed by GoDaddy](https://docs.aws.amazon.com/amplify/latest/userguide/to-add-a-custom-domain-managed-by-godaddy.html)
