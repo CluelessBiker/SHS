@@ -14,3 +14,5 @@
 
 - [Adding a custom domain managed by a third-party DNS provider](https://docs.aws.amazon.com/amplify/latest/userguide/to-add-a-custom-domain-managed-by-a-third-party-dns-provider.html)
 - [Updating DNS records for a domain managed by GoDaddy](https://docs.aws.amazon.com/amplify/latest/userguide/to-add-a-custom-domain-managed-by-godaddy.html)
+- [whatsmydns.net](https://www.whatsmydns.net/#A/www.systemhealthspine.com) : Check DNS propagation
+<!-- - [AWS support case](https://support.console.aws.amazon.com/support/home#/case/?displayId=175490510500709&language=en) : 175490510500709 -->
