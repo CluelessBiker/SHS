@@ -3,6 +3,7 @@ import { FC } from 'react';
 
 const StyledSpan = styled.span`
   max-width: 300px;
+  white-space: pre-line;
   text-transform: uppercase;
   font-size: var(--typography-size-caption);
   font-weight: var(--typography-weight-light);
