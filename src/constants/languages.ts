@@ -21,3 +21,5 @@ export const Languages = {
     name: 'french',
   },
 };
+
+export const LanguageArray = Object.values(Languages);
