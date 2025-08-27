@@ -17,6 +17,11 @@ const AboutPage = () => {
         <TextSection heading text={t('about.tagLine')} />
         <TextSection text={t('about.tagDescriptor')} />
         <BtnBookNow />
+        <TextSection
+          text={
+            '+30 211.1829292\ninfo@systemhealthspine.com\n17 Xenopoulou Grigoriou, Neo Psyxchiko, 11525'
+          }
+        />
       </HeroImageContainer>
 
       {/*ELFSIGHT : GOOGLE REVIEWS*/}
