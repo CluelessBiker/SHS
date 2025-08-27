@@ -47,6 +47,7 @@
   },
   "contact": {
     "contactUs": "Contact us",
+    "sendMess": "Message us",
     "form": {
       "name": "name",
       "subj": "subject",
@@ -54,6 +55,12 @@
       "phn": "phone",
       "eml": "email",
       "adr": "address"
+    },
+    "details": {
+      "addTitle": "Address",
+      "address": "17 Xenopoulou Grigoriou, Neo Psyxchiko, 11525",
+      "phone": "Phone",
+      "email": "Email"
     }
   },
   "week": {

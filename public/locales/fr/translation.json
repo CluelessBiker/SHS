@@ -29,6 +29,24 @@
     "tagLine": "Découvrez un Chemin vers le Bien-Être",
     "tagDescriptor": "Faites le premier pas vers un vous plus sain et plus heureux. Prenez rendez-vous"
   },
+  "contact": {
+    "contactUs": "Contactez-nous",
+    "sendMess": "Envoyez-nous un message",
+    "form": {
+      "name": "nom",
+      "subj": "sujet",
+      "msg": "message",
+      "phn": "téléphone",
+      "eml": "email",
+      "adr": "adresse"
+    },
+    "details": {
+      "addTitle": "Adresse",
+      "address": "17 Xenopoulou Grigoriou, Neo Psyxchiko, 11525",
+      "phone": "Téléphone",
+      "email": "Email"
+    }
+  },
   "week": {
     "long": {
       "sun": "Dimanche",
