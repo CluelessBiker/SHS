@@ -10,6 +10,7 @@ const Footer = () => {
 
   const changeLang = (lang: string) => {
     i18n.changeLanguage(lang);
+    console.log('lang', lang);
   };
 
   return (
@@ -33,11 +34,7 @@ const Footer = () => {
         </a>
       </div>
       <p className={'caption'}>©{year} System Health & Spine</p>
-      <div className={footer.lang}>
-        <button onClick={() => changeLang('en')}>EN</button>
-        <button onClick={() => changeLang('el')}>EL</button>
-        <button onClick={() => changeLang('fr')}>FR</button>
-      </div>
+      <p className={'caption'}>17 Xenopoulou Grigoriou, Neo Psyxchiko, 11525</p>
     </div>
   );
 };
