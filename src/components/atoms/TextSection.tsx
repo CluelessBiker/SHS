@@ -10,6 +10,7 @@ const StyledP = styled.p<StyledProps>`
   text-align: center;
   font-size: ${props => (props.heading ? '1.5rem' : '1rem')};
   text-transform: ${props => (props.heading ? 'uppercase' : 'none')};
+  white-space: pre-line;
   &.white {
     color: var(--mui-palette-primary-white);
   }
