@@ -2,16 +2,9 @@ import IconFB from '../../assets/svgs/IconFB';
 import IconIG from '../../assets/svgs/IconIG';
 import footer from '../../styles/Footer.module.css';
 import moment from 'moment';
-import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const year = moment().year();
-  const { i18n } = useTranslation();
-
-  const changeLang = (lang: string) => {
-    i18n.changeLanguage(lang);
-    console.log('lang', lang);
-  };
 
   return (
     <div className={footer.footerMain}>
