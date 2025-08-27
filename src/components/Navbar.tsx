@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { useTranslation } from 'react-i18next';
@@ -14,6 +13,8 @@ import ModalLocation from './organisms/ModalLocation';
 import IconSHSLogo from '../assets/svgs/IconSHSLogo';
 import nav from '../styles/Navbar.module.css';
 import BtnBookNow from './atoms/BtnBookNow';
+import MenuIcon from '../assets/svgs/MenuIcon';
+import LanguageSelect from './organisms/LanguageSelect';
 
 const pages = [
   { text: 'navbar.about', link: '' },
@@ -76,7 +77,10 @@ function Navbar() {
             color={'var(--mui-palette-primary-white'}
           />
 
-          <h2>System Health Spine</h2>
+          <div className={nav.shs}>
+            <h2>System Health Spine</h2>
+            <p className={nav.subtext}>+30 211.1829292 | info@systemhealthspine.com</p>
+          </div>
         </a>
 
         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -88,7 +92,7 @@ function Navbar() {
             aria-controls={'menu-appbar'}
             aria-label="account of current user"
           >
-            <MenuIcon />
+            <MenuIcon stroke={'var(--mui-palette-primary-white)'} />
           </IconButton>
           <Menu
             id="menu-appbar"
@@ -110,9 +114,15 @@ function Navbar() {
           >
             {pages.map(page => (
               <MenuItem key={page.text} onClick={() => handlePageNavigation(page.link)}>
-                <a>{t(page.text)}</a>
+                <a style={{ textTransform: 'capitalize' }}>{t(page.text)}</a>
               </MenuItem>
             ))}
+            <MenuItem>
+              <LanguageSelect />
+            </MenuItem>
+            <MenuItem>
+              <BtnBookNow />
+            </MenuItem>
           </Menu>
         </Box>
 
@@ -133,6 +143,7 @@ function Navbar() {
             </Button>
           ))}
           <BtnBookNow />
+          <LanguageSelect />
         </Box>
 
         {/* {currentUser && (
