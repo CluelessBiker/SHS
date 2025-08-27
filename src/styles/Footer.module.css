@@ -1,32 +1,32 @@
 .footerMain {
-    width: 100%;
-    display: flex;
-    position: relative;
-    align-items: center;
-    gap: var(--spacing-1);
-    flex-direction: column;
-    justify-content: center;
-    padding: var(--spacing-2);
-    background-color: var(--mui-palette-primary-pink);
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: var(--spacing-half);
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-2);
+  background-color: var(--mui-palette-primary-pink);
 }
 
 .iconBox {
-    display: flex;
-    gap: var(--spacing-1);
+  display: flex;
+  gap: var(--spacing-1);
 }
 
 .lang {
-    right: 10px;
-    bottom: 10px;
-    display: flex;
-    position: absolute;
-    gap: var(--spacing-half);
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  position: absolute;
+  gap: var(--spacing-half);
 }
 
 .lang > button {
-    border: none;
-    background-color: transparent;
-    color: var(--mui-palette-primary-white);
-    font-size: var(--typography-size-caption);
-    font-weight: var(--typography-weight-bold);
+  border: none;
+  background-color: transparent;
+  color: var(--mui-palette-primary-white);
+  font-size: var(--typography-size-caption);
+  font-weight: var(--typography-weight-bold);
 }

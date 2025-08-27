@@ -1,18 +1,30 @@
 .logo {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-1);
-    color: var(--mui-palette-primary-white);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--mui-palette-primary-white);
 }
 
-.logo > h2 {
-    color: var(--mui-palette-primary-white);
+.shs {
+  color: var(--mui-palette-primary-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-half);
 }
 
-.logo:hover {
-    color: var(--mui-palette-primary-white);
+.shs > h2 {
+  color: var(--mui-palette-primary-white);
+}
+
+.subtext {
+  font-size: 12px;
+  color: var(--mui-palette-primary-lightGrey);
+}
+
+.logoTitle .logo:hover {
+  color: var(--mui-palette-primary-white);
 }
 
 .navbar {
-    background-color: var(--mui-palette-primary-pink);
+  background-color: var(--mui-palette-primary-pink);
 }
