@@ -6,6 +6,7 @@
   --mui-palette-primary-medium: #2e2d27;
   --mui-palette-primary-green: #706c53;
   --mui-palette-primary-white: #f1f1f1;
+  --mui-palette-primary-lightGrey: #dddddd;
 
   /* SPACING */
   --spacing-half: 4px;
@@ -26,7 +27,7 @@
   --typography-weight-bold: 600;
 
   /* TYPOGRAPHY */
-  --typography-face: "Montserrat", sans-serif;
+  --typography-face: 'Montserrat', sans-serif;
 }
 
 * {
@@ -56,7 +57,8 @@
 }
 
 /* LINKS */
-a:link, a:hover {
+a:link,
+a:hover {
   text-decoration: none;
 }
 
@@ -75,8 +77,8 @@ a:link, a:hover {
 .bodyInner {
   width: 100%;
   overflow: scroll;
-  scrollbar-width: none;  /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
 .bodyInner::-webkit-scrollbar {
@@ -100,7 +102,7 @@ iframe {
 }
 
 /* MOBILE STYLING */
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .boxContent {
     width: 300px;
   }
