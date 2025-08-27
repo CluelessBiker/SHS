@@ -7,6 +7,7 @@ import ContactHours from '../components/molecules/ContactHours';
 import TextSection from '../components/atoms/TextSection';
 import BoxContent from '../components/atoms/BoxContent';
 import emailjs from '@emailjs/browser';
+import ContactInfo from '../components/molecules/ContactInfo';
 
 const ContactPage = () => {
   const form = useRef<HTMLFormElement | null>(null);
@@ -34,7 +35,7 @@ const ContactPage = () => {
   return (
     <div className={'boxContentContainer'}>
       <BoxContent variant={'verticalGap'}>
-        <TextSection text={t('contact.contactUs')} heading />
+        <TextSection text={t('contact.sendMess')} heading />
         <form
           ref={form}
           onSubmit={sendEmail}
@@ -59,7 +60,17 @@ const ContactPage = () => {
           <Button type={'submit'} text={t('buttons.submit')} />
         </form>
       </BoxContent>
-      <ContactHours />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--spacing-1)',
+          maxWidth: '400px',
+        }}
+      >
+        <ContactInfo />
+        <ContactHours />
+      </div>
     </div>
   );
 };
